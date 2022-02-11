@@ -31,6 +31,11 @@ class Configuration extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function scopePublic($query)
+    {
+        return $query->where('is_public', true);
+    }
+
     public function getRouteKeyName()
     {
         return 'uuid';

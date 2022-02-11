@@ -12,16 +12,16 @@
                         <div class="flex">
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
-                                <Link :href="route('dashboard')">
+                                <Link :href="route('home')">
                                     <img src="/logo/logo-large.svg" alt="logo" class="block h-10 w-auto" />
                                 </Link>
                             </div>
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
+                                <!-- <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
-                                </jet-nav-link>
+                                </jet-nav-link> -->
                             </div>
                         </div>
 
@@ -82,7 +82,7 @@
                             </div>
 
                             <!-- Settings Dropdown -->
-                            <div class="ml-3 relative">
+                            <div v-if="$page.props.user" class="ml-3 relative">
                                 <jet-dropdown align="right" width="48">
                                     <template #trigger>
                                         <button v-if="$page.props.jetstream.managesProfilePhotos" class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
@@ -125,6 +125,14 @@
                                     </template>
                                 </jet-dropdown>
                             </div>
+                            <div v-else class="space-x-8">
+                                <jet-nav-link class="h-16" :href="route('login')" :active="route().current('login')">
+                                    Log in
+                                </jet-nav-link>
+                                <jet-nav-link class="h-16" :href="route('register')" :active="route().current('register')">
+                                    Register
+                                </jet-nav-link>
+                            </div>
                         </div>
 
                         <!-- Hamburger -->
@@ -148,7 +156,7 @@
                     </div>
 
                     <!-- Responsive Settings Options -->
-                    <div class="pt-4 pb-1 border-t border-gray-200">
+                    <div v-if="$page.props.user" class="pt-4 pb-1 border-t border-gray-200">
                         <div class="flex items-center px-4">
                             <div v-if="$page.props.jetstream.managesProfilePhotos" class="shrink-0 mr-3" >
                                 <img class="h-10 w-10 rounded-full object-cover" :src="$page.props.user.profile_photo_url" :alt="$page.props.user.name" />
@@ -227,6 +235,10 @@
             <main>
                 <slot></slot>
             </main>
+
+            <footer>
+                <app-footer></app-footer>
+            </footer>
         </div>
     </div>
 </template>
@@ -239,6 +251,7 @@
     import JetDropdownLink from '@/Jetstream/DropdownLink.vue'
     import JetNavLink from '@/Jetstream/NavLink.vue'
     import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink.vue'
+    import AppFooter from '@/Partials/AppFooter.vue'
     import { Head, Link } from '@inertiajs/inertia-vue3';
 
     export default defineComponent({
@@ -255,6 +268,7 @@
             JetNavLink,
             JetResponsiveNavLink,
             Link,
+            AppFooter
         },
 
         data() {

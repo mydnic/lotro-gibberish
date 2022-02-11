@@ -10,6 +10,8 @@ This site is built with the [Laravel](https://laravel.com/) framework for the ba
 
 The front end is built with [TailwindCSS](https://tailwindcss.com/), [Inertia](https://inertiajs.com/) and [Vue.js](https://vuejs.org/).
 
+I needed an excuse to learn InertiaJS and Laravel Jetstream so... voila
+
 ## Installation
 
 Clone this repo

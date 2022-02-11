@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreConfigurationRequest;
 use App\Http\Requests\UpdateConfigurationRequest;
+use App\Models\Category;
 use App\Models\Configuration;
 use Inertia\Inertia;
 
@@ -16,9 +17,11 @@ class ConfigurationController extends Controller
      */
     public function index()
     {
-        $configurations = Configuration::all();
+        $categories = Category::all();
+        $configurations = Configuration::public()->with('category', 'user')->get();
 
         return Inertia::render('Configuration/Index', [
+            'categories' => $categories,
             'configurations' => $configurations,
         ]);
     }
