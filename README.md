@@ -8,7 +8,7 @@
 
 This site is built with the [Laravel](https://laravel.com/) framework for the back end.
 
-The front end is built with [TailwindCSS](https://tailwindcss.com/) and [Inertia](https://inertiajs.com/).
+The front end is built with [TailwindCSS](https://tailwindcss.com/), [Inertia](https://inertiajs.com/) and [Vue.js](https://vuejs.org/).
 
 ## Installation
 
