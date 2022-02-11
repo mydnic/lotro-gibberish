@@ -4,6 +4,12 @@
 - mysql >= 5.7
 - composer
 
+## Stack
+
+This site is built with the [Laravel](https://laravel.com/) framework for the back end.
+
+The front end is built with [TailwindCSS](https://tailwindcss.com/) and [Inertia](https://inertiajs.com/).
+
 ## Installation
 
 Clone this repo
