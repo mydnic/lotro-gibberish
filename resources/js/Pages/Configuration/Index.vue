@@ -1,5 +1,5 @@
 <template>
-    <app-layout title="Dashboard">
+    <app-layout title="All Configs">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 All Configs
@@ -16,7 +16,7 @@
                         <jet-input id="search" placeholder="Search..." type="search" class="pl-10 block w-full" v-model="filters.search" autofocus />
                     </div>
 
-                    <div class="flex items-center space-x-5">
+                    <div class="md:flex hidden items-center space-x-5">
                         <jet-label>Languages:</jet-label>
                         <div class="flex items-center">
                             <jet-checkbox name="lang.fr" id="lang.fr" v-model:checked="filters.languages.fr" />

@@ -19,6 +19,6 @@ Route::get('/', 'ConfigurationController@index')->name('home');
 
 Route::get('/config/create', 'ConfigurationController@create')->name('configuration.create')->middleware('auth');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->name('dashboard');
+Route::prefix('auth')->middleware('auth')->as('user.')->group(function () {
+    Route::resource('configuration', 'Auth\ConfigurationController');
+});

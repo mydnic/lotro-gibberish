@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
-use App\Http\Requests\StoreConfigurationRequest;
-use App\Http\Requests\UpdateConfigurationRequest;
+use Inertia\Inertia;
 use App\Models\Category;
 use App\Models\Configuration;
-use Inertia\Inertia;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreConfigurationRequest;
+use App\Http\Requests\UpdateConfigurationRequest;
 
 class ConfigurationController extends Controller
 {
@@ -17,26 +18,36 @@ class ConfigurationController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        $configurations = Configuration::public()->with('category', 'user')->get();
+        $configurations = auth()->user()->configurations()->with('category')->get();
 
-        return Inertia::render('Configuration/Index', [
-            'categories' => $categories,
+        return Inertia::render('Auth/Configuration/Index', [
             'configurations' => $configurations,
         ]);
     }
 
     /**
-     * Display the specified resource.
+     * Show the form for creating a new resource.
      *
-     * @param  \App\Models\Configuration  $configuration
      * @return \Illuminate\Http\Response
      */
-    public function show(Configuration $configuration)
+    public function create()
     {
-        return Inertia::render('Configuration/Show', [
-            'configuration' => $configuration,
-        ]);
+        $categories = Category::all();
+
+        return Inertia::render('Auth/Configuration/Create', compact('categories'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \App\Http\Requests\StoreConfigurationRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(StoreConfigurationRequest $request)
+    {
+        auth()->user()->configurations()->create($request->validated());
+
+        return to_route('user.configuration.index');
     }
 
     /**
@@ -49,7 +60,7 @@ class ConfigurationController extends Controller
     {
         $this->authorize('update', $configuration);
 
-        return Inertia::render('Configuration/Edit', [
+        return Inertia::render('Auth/Configuration/Edit', [
             'configuration' => $configuration,
         ]);
     }
@@ -78,6 +89,6 @@ class ConfigurationController extends Controller
     {
         $this->authorize('delete', $configuration);
 
-        //
+        $configuration->delete();
     }
 }

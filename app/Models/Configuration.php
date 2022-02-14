@@ -10,6 +10,15 @@ class Configuration extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'description',
+        'code',
+        'category_id',
+        'language',
+        'is_public',
+    ];
+
     /**
      *  Setup model event hooks
      */

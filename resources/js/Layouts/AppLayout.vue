@@ -110,8 +110,17 @@
                                             Profile
                                         </jet-dropdown-link>
 
-                                        <jet-dropdown-link :href="route('api-tokens.index')" v-if="$page.props.jetstream.hasApiFeatures">
-                                            API Tokens
+                                        <!-- Configs Management -->
+                                        <div class="block px-4 py-2 text-xs text-gray-400">
+                                            Configs
+                                        </div>
+
+                                        <jet-dropdown-link :href="route('user.configuration.index')">
+                                            My Configs
+                                        </jet-dropdown-link>
+
+                                        <jet-dropdown-link :href="route('user.configuration.create')">
+                                            Post New Config
                                         </jet-dropdown-link>
 
                                         <div class="border-t border-gray-100"></div>
@@ -149,11 +158,11 @@
 
                 <!-- Responsive Navigation Menu -->
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
-                    <div class="pt-2 pb-3 space-y-1">
+                    <!-- <div class="pt-2 pb-3 space-y-1">
                         <jet-responsive-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
                             Dashboard
                         </jet-responsive-nav-link>
-                    </div>
+                    </div> -->
 
                     <!-- Responsive Settings Options -->
                     <div v-if="$page.props.user" class="pt-4 pb-1 border-t border-gray-200">
@@ -219,6 +228,17 @@
                                     </form>
                                 </template>
                             </template>
+                        </div>
+                    </div>
+                    <div v-else class="pt-4 pb-1 border-t border-gray-200">
+                        <div class="space-y-1">
+                            <jet-responsive-nav-link :href="route('login')" :active="route().current('login')">
+                                Log in
+                            </jet-responsive-nav-link>
+
+                            <jet-responsive-nav-link :href="route('register')" :active="route().current('register')">
+                                Register
+                            </jet-responsive-nav-link>
                         </div>
                     </div>
                 </div>
