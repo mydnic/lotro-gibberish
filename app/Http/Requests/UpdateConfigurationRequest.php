@@ -13,7 +13,7 @@ class UpdateConfigurationRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return auth()->check();
     }
 
     /**
@@ -24,7 +24,12 @@ class UpdateConfigurationRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|max:255',
+            'description' => 'nullable',
+            'code' => 'required',
+            'category_id' => 'required|exists:categories,id',
+            'language' => 'required|in:fr,de,en',
+            'is_public' => 'required|boolean',
         ];
     }
 }

@@ -59,9 +59,11 @@ class ConfigurationController extends Controller
     public function edit(Configuration $configuration)
     {
         $this->authorize('update', $configuration);
+        $categories = Category::all();
 
         return Inertia::render('Auth/Configuration/Edit', [
             'configuration' => $configuration,
+            'categories' => $categories,
         ]);
     }
 
@@ -76,7 +78,11 @@ class ConfigurationController extends Controller
     {
         $this->authorize('update', $configuration);
 
-        //
+        $configuration->update($request->validated());
+
+        $configuration->increment('updated_count');
+
+        return back()->banner('Configuration updated successfully.');
     }
 
     /**
@@ -90,5 +96,7 @@ class ConfigurationController extends Controller
         $this->authorize('delete', $configuration);
 
         $configuration->delete();
+
+        return to_route('user.configuration.index')->banner('Configuration deleted successfully.');
     }
 }

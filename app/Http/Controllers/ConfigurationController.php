@@ -18,7 +18,10 @@ class ConfigurationController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $configurations = Configuration::public()->with('category', 'user')->get();
+        $configurations = Configuration::public()
+            ->with('category', 'user', 'likeCounter')
+            ->orderBy('updated_at', 'desc')
+            ->get();
 
         return Inertia::render('Configuration/Index', [
             'categories' => $categories,
@@ -35,7 +38,9 @@ class ConfigurationController extends Controller
     public function show(Configuration $configuration)
     {
         return Inertia::render('Configuration/Show', [
-            'configuration' => $configuration,
+            'configuration' => $configuration->load('category', 'user', 'likeCounter'),
+            'liked' => $configuration->liked(),
+            // 'liked' => auth()->check() ? $configuration->liked() : false,
         ]);
     }
 

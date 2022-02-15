@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use Webpatser\Uuid\Uuid;
+use Conner\Likeable\Likeable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Configuration extends Model
 {
-    use HasFactory;
+    use HasFactory, Likeable;
 
     protected $fillable = [
         'title',
