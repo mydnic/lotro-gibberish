@@ -2,7 +2,7 @@
     <app-layout title="Edit Config">
         <template #header>
             <div class="flex items-center justify-between">
-                <h2 class="text-xl font-semibold leading-tight text-gray-800">
+                <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-white">
                     Edit Config
                 </h2>
                 <div class="flex items-center space-x-4">
