@@ -47,6 +47,10 @@
                                 <button type="button" class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition bg-white border border-transparent rounded-md hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50">
                                     Categories
 
+                                    <span v-if="selectedCategoryIds.length">
+                                        ({{selectedCategoryIds.length}})
+                                    </span>
+
                                     <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 -mr-0.5 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                                     </svg>
@@ -109,6 +113,12 @@ export default defineComponent({
     },
 
     computed: {
+        selectedCategoryIds() {
+            return Object.keys(this.filters.categories)
+                        .filter(key => this.filters.categories[key])
+                        .map(id => parseInt(id))
+        },
+
         filteredConfigurations() {
             return this.configurations
                 .filter(config => {
@@ -136,8 +146,8 @@ export default defineComponent({
 
                 })
                 .filter(config => {
-                    if (Object.keys(this.filters.categories).filter(key => this.filters.categories[key]).length) {
-                        return Object.keys(this.filters.categories).filter(key => this.filters.categories[key]).includes(config.categories)
+                    if (this.selectedCategoryIds.length) {
+                        return this.selectedCategoryIds.includes(config.category_id)
                     }
                     return true
                 })
