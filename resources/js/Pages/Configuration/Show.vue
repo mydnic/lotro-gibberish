@@ -61,7 +61,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="pt-8 prose whitespace-pre" v-html="formatDescription(configuration.description)" >
+                <div class="pt-8 prose whitespace-pre" v-html="configuration.formatted_description" >
                 </div>
                 <div class="p-10">
                     <pre class="p-2 overflow-auto text-sm bg-gray-100 border border-gray-300 rounded-md" v-html="configuration.code" />
@@ -111,12 +111,6 @@ export default defineComponent({
     },
 
     methods: {
-        formatDescription(text) {
-            const URLMatcher = /(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm
-
-            return text.replace(URLMatcher, match => `<a href="${match}" target="_blank">${match}</a>`)
-        },
-
         formatDate(dateString) {
             return dayjs(dateString).format('DD/MM/YYYY')
         },

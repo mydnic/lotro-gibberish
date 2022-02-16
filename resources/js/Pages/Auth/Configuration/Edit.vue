@@ -9,10 +9,6 @@
                     <jet-secondary-button @click="goToPublicPage">
                         Get public link
                     </jet-secondary-button>
-                    <!-- <Link
-                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                        :href="route('configuration.show', configuration.uuid)"
-                    ></Link> -->
                     <delete-config-button :configuration="configuration"></delete-config-button>
                 </div>
             </div>
@@ -31,6 +27,9 @@
                     <div class="mt-4">
                         <jet-label for="description" value="Description" />
                         <jet-textarea id="description" placeholder="Write a small description about this gibberish config... what it does, etc. Links are automatically formated." class="block w-full mt-1" v-model="form.description" required />
+                        <p class="mt-1 text-xs italic text-gray-500">
+                            Links are automatically formated and images (url) are automatically embeded.
+                        </p>
                     </div>
 
                     <div class="mt-4">

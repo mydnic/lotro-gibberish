@@ -46,6 +46,23 @@ class Configuration extends Model
         return $query->where('is_public', true);
     }
 
+    public function formattedDescription()
+    {
+        $content = $this->description;
+
+        $regex_images = '~https?://\S+?(?:png|gif|jpe?g)~';
+        $regex_links = '~
+                        (?<!src=\') # negative lookbehind (no src=\' allowed!)
+                        https?://   # http:// or https://
+                        \S+         # anything not a whitespace
+                        \b          # a word boundary
+                        ~x';        # verbose modifier for these explanations
+
+        $content = preg_replace($regex_images, "<img src='\\0'>", $content);
+        $content = preg_replace($regex_links, "<a href='\\0'>\\0</a>", $content);
+        return $content;
+    }
+
     public function getRouteKeyName()
     {
         return 'uuid';

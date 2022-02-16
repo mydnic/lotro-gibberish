@@ -2,30 +2,33 @@
     <app-layout title="Publish new Config">
         <template #header>
             <div class="flex items-center justify-between">
-                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                <h2 class="text-xl font-semibold leading-tight text-gray-800">
                     Publish new Config
                 </h2>
             </div>
         </template>
 
         <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <jet-validation-errors class="mb-4" />
 
                 <form @submit.prevent="submit">
                     <div>
                         <jet-label for="title" value="Title" />
-                        <jet-input id="title" type="text" class="mt-1 block w-full" v-model="form.title" required autofocus autocomplete="name" />
+                        <jet-input id="title" type="text" class="block w-full mt-1" v-model="form.title" required autofocus autocomplete="name" />
                     </div>
 
                     <div class="mt-4">
                         <jet-label for="description" value="Description" />
-                        <jet-textarea id="description" placeholder="Write a small description about this gibberish config... what it does, etc. Links are automatically formated." class="mt-1 block w-full" v-model="form.description" required />
+                        <jet-textarea id="description" placeholder="Write a small description about this gibberish config... what it does, etc. Links are automatically formated." class="block w-full mt-1" v-model="form.description" required />
+                        <p class="mt-1 text-xs italic text-gray-500">
+                            Links are automatically formated and images (url) are automatically embeded.
+                        </p>
                     </div>
 
                     <div class="mt-4">
                         <jet-label for="code" value="Export Code" />
-                        <jet-textarea id="code" placeholder="Paste Code here" class="mt-1 block w-full" v-model="form.code" required />
+                        <jet-textarea id="code" placeholder="Paste Code here" class="block w-full mt-1" v-model="form.code" required />
                     </div>
 
                     <div class="mt-4">
@@ -34,7 +37,7 @@
                             <button
                                 type="button"
                                 @click="form.language = 'en'"
-                                class="border rounded-md py-2 px-5 text-sm font-medium uppercase focus:outline-none"
+                                class="px-5 py-2 text-sm font-medium uppercase border rounded-md focus:outline-none"
                                 :class="{
                                     'bg-indigo-600 border-transparent text-white hover:bg-indigo-700': form.language === 'en',
                                     'bg-white border-gray-200 text-gray-900 hover:bg-gray-50': form.language !== 'en',
@@ -43,7 +46,7 @@
                             <button
                                 type="button"
                                 @click="form.language = 'fr'"
-                                class="border rounded-md py-2 px-5 text-sm font-medium uppercase focus:outline-none"
+                                class="px-5 py-2 text-sm font-medium uppercase border rounded-md focus:outline-none"
                                 :class="{
                                     'bg-indigo-600 border-transparent text-white hover:bg-indigo-700': form.language === 'fr',
                                     'bg-white border-gray-200 text-gray-900 hover:bg-gray-50': form.language !== 'fr',
@@ -52,7 +55,7 @@
                             <button
                                 type="button"
                                 @click="form.language = 'de'"
-                                class="border rounded-md py-2 px-5 text-sm font-medium uppercase focus:outline-none"
+                                class="px-5 py-2 text-sm font-medium uppercase border rounded-md focus:outline-none"
                                 :class="{
                                     'bg-indigo-600 border-transparent text-white hover:bg-indigo-700': form.language === 'de',
                                     'bg-white border-gray-200 text-gray-900 hover:bg-gray-50': form.language !== 'de',
@@ -63,7 +66,7 @@
 
                     <div class="mt-4">
                         <jet-label for="category" value="Category" />
-                        <select name="category_id" id="category" v-model="form.category_id" required class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                        <select name="category_id" id="category" v-model="form.category_id" required class="block w-full py-2 pl-3 pr-10 mt-1 text-base border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             <option>Chose a category</option>
                             <option v-for="category in categories" :key="category.id" :value="category.id">
                                 {{ category.title }}

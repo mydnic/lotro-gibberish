@@ -37,8 +37,11 @@ class ConfigurationController extends Controller
      */
     public function show(Configuration $configuration)
     {
+        $config = $configuration->load('category', 'user', 'likeCounter');
+        $config->formatted_description = $configuration->formattedDescription();
+
         return Inertia::render('Configuration/Show', [
-            'configuration' => $configuration->load('category', 'user', 'likeCounter'),
+            'configuration' => $config,
             'liked' => $configuration->liked(),
             // 'liked' => auth()->check() ? $configuration->liked() : false,
         ]);
