@@ -23780,15 +23780,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var _Jetstream_AuthenticationCard_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Jetstream/AuthenticationCard.vue */ "./resources/js/Jetstream/AuthenticationCard.vue");
-/* harmony import */ var _Jetstream_AuthenticationCardLogo_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Jetstream/AuthenticationCardLogo.vue */ "./resources/js/Jetstream/AuthenticationCardLogo.vue");
-/* harmony import */ var _Jetstream_Button_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Jetstream/Button.vue */ "./resources/js/Jetstream/Button.vue");
-/* harmony import */ var _Jetstream_Input_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Jetstream/Input.vue */ "./resources/js/Jetstream/Input.vue");
-/* harmony import */ var _Jetstream_Checkbox_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Jetstream/Checkbox.vue */ "./resources/js/Jetstream/Checkbox.vue");
-/* harmony import */ var _Jetstream_Label_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/Jetstream/Label.vue */ "./resources/js/Jetstream/Label.vue");
-/* harmony import */ var _Jetstream_ValidationErrors_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/Jetstream/ValidationErrors.vue */ "./resources/js/Jetstream/ValidationErrors.vue");
-/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout.vue */ "./resources/js/Layouts/AppLayout.vue");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _Jetstream_AuthenticationCard_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Jetstream/AuthenticationCard.vue */ "./resources/js/Jetstream/AuthenticationCard.vue");
+/* harmony import */ var _Jetstream_AuthenticationCardLogo_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Jetstream/AuthenticationCardLogo.vue */ "./resources/js/Jetstream/AuthenticationCardLogo.vue");
+/* harmony import */ var _Jetstream_Button_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Jetstream/Button.vue */ "./resources/js/Jetstream/Button.vue");
+/* harmony import */ var _Jetstream_Input_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Jetstream/Input.vue */ "./resources/js/Jetstream/Input.vue");
+/* harmony import */ var _Jetstream_Checkbox_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/Jetstream/Checkbox.vue */ "./resources/js/Jetstream/Checkbox.vue");
+/* harmony import */ var _Jetstream_Label_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/Jetstream/Label.vue */ "./resources/js/Jetstream/Label.vue");
+/* harmony import */ var _Jetstream_ValidationErrors_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/Jetstream/ValidationErrors.vue */ "./resources/js/Jetstream/ValidationErrors.vue");
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -23804,17 +23805,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vue__WEBPACK_IMPORTED_MODULE_1__.defineComponent)({
   components: {
-    Head: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_8__.Head,
-    JetAuthenticationCard: _Jetstream_AuthenticationCard_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    JetAuthenticationCardLogo: _Jetstream_AuthenticationCardLogo_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    JetButton: _Jetstream_Button_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    JetInput: _Jetstream_Input_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    JetCheckbox: _Jetstream_Checkbox_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
-    JetLabel: _Jetstream_Label_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
-    JetValidationErrors: _Jetstream_ValidationErrors_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
-    Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_8__.Link
+    Head: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_9__.Head,
+    AppLayout: _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    JetAuthenticationCard: _Jetstream_AuthenticationCard_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    JetAuthenticationCardLogo: _Jetstream_AuthenticationCardLogo_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    JetButton: _Jetstream_Button_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    JetInput: _Jetstream_Input_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    JetCheckbox: _Jetstream_Checkbox_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+    JetLabel: _Jetstream_Label_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+    JetValidationErrors: _Jetstream_ValidationErrors_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
+    Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_9__.Link
   },
   props: {
     canResetPassword: Boolean,
@@ -23859,15 +23862,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var _Jetstream_AuthenticationCard_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Jetstream/AuthenticationCard.vue */ "./resources/js/Jetstream/AuthenticationCard.vue");
-/* harmony import */ var _Jetstream_AuthenticationCardLogo_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Jetstream/AuthenticationCardLogo.vue */ "./resources/js/Jetstream/AuthenticationCardLogo.vue");
-/* harmony import */ var _Jetstream_Button_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Jetstream/Button.vue */ "./resources/js/Jetstream/Button.vue");
-/* harmony import */ var _Jetstream_Input_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Jetstream/Input.vue */ "./resources/js/Jetstream/Input.vue");
-/* harmony import */ var _Jetstream_Checkbox_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Jetstream/Checkbox.vue */ "./resources/js/Jetstream/Checkbox.vue");
-/* harmony import */ var _Jetstream_Label_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/Jetstream/Label.vue */ "./resources/js/Jetstream/Label.vue");
-/* harmony import */ var _Jetstream_ValidationErrors_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/Jetstream/ValidationErrors.vue */ "./resources/js/Jetstream/ValidationErrors.vue");
-/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout.vue */ "./resources/js/Layouts/AppLayout.vue");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _Jetstream_AuthenticationCard_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Jetstream/AuthenticationCard.vue */ "./resources/js/Jetstream/AuthenticationCard.vue");
+/* harmony import */ var _Jetstream_AuthenticationCardLogo_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Jetstream/AuthenticationCardLogo.vue */ "./resources/js/Jetstream/AuthenticationCardLogo.vue");
+/* harmony import */ var _Jetstream_Button_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Jetstream/Button.vue */ "./resources/js/Jetstream/Button.vue");
+/* harmony import */ var _Jetstream_Input_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Jetstream/Input.vue */ "./resources/js/Jetstream/Input.vue");
+/* harmony import */ var _Jetstream_Checkbox_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/Jetstream/Checkbox.vue */ "./resources/js/Jetstream/Checkbox.vue");
+/* harmony import */ var _Jetstream_Label_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/Jetstream/Label.vue */ "./resources/js/Jetstream/Label.vue");
+/* harmony import */ var _Jetstream_ValidationErrors_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/Jetstream/ValidationErrors.vue */ "./resources/js/Jetstream/ValidationErrors.vue");
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
 
 
 
@@ -23877,17 +23881,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vue__WEBPACK_IMPORTED_MODULE_1__.defineComponent)({
   components: {
-    Head: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_8__.Head,
-    JetAuthenticationCard: _Jetstream_AuthenticationCard_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    JetAuthenticationCardLogo: _Jetstream_AuthenticationCardLogo_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    JetButton: _Jetstream_Button_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    JetInput: _Jetstream_Input_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    JetCheckbox: _Jetstream_Checkbox_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
-    JetLabel: _Jetstream_Label_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
-    JetValidationErrors: _Jetstream_ValidationErrors_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
-    Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_8__.Link
+    Head: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_9__.Head,
+    AppLayout: _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    JetAuthenticationCard: _Jetstream_AuthenticationCard_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    JetAuthenticationCardLogo: _Jetstream_AuthenticationCardLogo_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    JetButton: _Jetstream_Button_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    JetInput: _Jetstream_Input_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    JetCheckbox: _Jetstream_Checkbox_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+    JetLabel: _Jetstream_Label_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+    JetValidationErrors: _Jetstream_ValidationErrors_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
+    Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_9__.Link
   },
   data: function data() {
     return {
@@ -28326,7 +28332,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var _hoisted_1 = {
   key: 0,
-  "class": "mb-4 font-medium text-sm text-green-600"
+  "class": "mb-4 text-sm font-medium text-green-600"
 };
 var _hoisted_2 = {
   "class": "mt-4"
@@ -28371,89 +28377,100 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_jet_authentication_card = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("jet-authentication-card");
 
+  var _component_app_layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("app-layout");
+
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, {
     title: "Log in"
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_authentication_card, null, {
-    logo: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_authentication_card_logo)];
-    }),
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_app_layout, {
+    title: "Login"
+  }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_validation_errors, {
-        "class": "mb-4"
-      }), _ctx.status ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.status), 1
-      /* TEXT */
-      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
-        onSubmit: _cache[3] || (_cache[3] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
-          return _ctx.submit && _ctx.submit.apply(_ctx, arguments);
-        }, ["prevent"]))
-      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_label, {
-        "for": "email",
-        value: "Email"
-      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_input, {
-        id: "email",
-        type: "email",
-        "class": "mt-1 block w-full",
-        modelValue: _ctx.form.email,
-        "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
-          return _ctx.form.email = $event;
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_authentication_card, null, {
+        logo: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_authentication_card_logo)];
         }),
-        required: "",
-        autofocus: ""
-      }, null, 8
-      /* PROPS */
-      , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_label, {
-        "for": "password",
-        value: "Password"
-      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_input, {
-        id: "password",
-        type: "password",
-        "class": "mt-1 block w-full",
-        modelValue: _ctx.form.password,
-        "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
-          return _ctx.form.password = $event;
-        }),
-        required: "",
-        autocomplete: "current-password"
-      }, null, 8
-      /* PROPS */
-      , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_checkbox, {
-        name: "remember",
-        checked: _ctx.form.remember,
-        "onUpdate:checked": _cache[2] || (_cache[2] = function ($event) {
-          return _ctx.form.remember = $event;
-        })
-      }, null, 8
-      /* PROPS */
-      , ["checked"]), _hoisted_5])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_ctx.canResetPassword ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Link, {
-        key: 0,
-        href: _ctx.route('password.request'),
-        "class": "underline text-sm text-gray-600 hover:text-gray-900"
-      }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_7];
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_validation_errors, {
+            "class": "mb-4"
+          }), _ctx.status ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.status), 1
+          /* TEXT */
+          )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+            onSubmit: _cache[3] || (_cache[3] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+              return _ctx.submit && _ctx.submit.apply(_ctx, arguments);
+            }, ["prevent"]))
+          }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_label, {
+            "for": "email",
+            value: "Email"
+          }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_input, {
+            id: "email",
+            type: "email",
+            "class": "block w-full mt-1",
+            modelValue: _ctx.form.email,
+            "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+              return _ctx.form.email = $event;
+            }),
+            required: "",
+            autofocus: ""
+          }, null, 8
+          /* PROPS */
+          , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_label, {
+            "for": "password",
+            value: "Password"
+          }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_input, {
+            id: "password",
+            type: "password",
+            "class": "block w-full mt-1",
+            modelValue: _ctx.form.password,
+            "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+              return _ctx.form.password = $event;
+            }),
+            required: "",
+            autocomplete: "current-password"
+          }, null, 8
+          /* PROPS */
+          , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_checkbox, {
+            name: "remember",
+            checked: _ctx.form.remember,
+            "onUpdate:checked": _cache[2] || (_cache[2] = function ($event) {
+              return _ctx.form.remember = $event;
+            })
+          }, null, 8
+          /* PROPS */
+          , ["checked"]), _hoisted_5])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_ctx.canResetPassword ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Link, {
+            key: 0,
+            href: _ctx.route('password.request'),
+            "class": "text-sm text-gray-600 underline hover:text-gray-900"
+          }, {
+            "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+              return [_hoisted_7];
+            }),
+            _: 1
+            /* STABLE */
+
+          }, 8
+          /* PROPS */
+          , ["href"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_button, {
+            "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["ml-4", {
+              'opacity-25': _ctx.form.processing
+            }]),
+            disabled: _ctx.form.processing
+          }, {
+            "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+              return [_hoisted_8];
+            }),
+            _: 1
+            /* STABLE */
+
+          }, 8
+          /* PROPS */
+          , ["class", "disabled"])])], 32
+          /* HYDRATE_EVENTS */
+          )];
         }),
         _: 1
         /* STABLE */
 
-      }, 8
-      /* PROPS */
-      , ["href"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_button, {
-        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["ml-4", {
-          'opacity-25': _ctx.form.processing
-        }]),
-        disabled: _ctx.form.processing
-      }, {
-        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_8];
-        }),
-        _: 1
-        /* STABLE */
-
-      }, 8
-      /* PROPS */
-      , ["class", "disabled"])])], 32
-      /* HYDRATE_EVENTS */
-      )];
+      })];
     }),
     _: 1
     /* STABLE */
@@ -28532,138 +28549,149 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_jet_authentication_card = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("jet-authentication-card");
 
+  var _component_app_layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("app-layout");
+
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, {
     title: "Register"
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_authentication_card, null, {
-    logo: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_authentication_card_logo)];
-    }),
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_app_layout, {
+    title: "Create an account"
+  }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_validation_errors, {
-        "class": "mb-4"
-      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
-        onSubmit: _cache[5] || (_cache[5] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
-          return _ctx.submit && _ctx.submit.apply(_ctx, arguments);
-        }, ["prevent"]))
-      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_label, {
-        "for": "username",
-        value: "Username"
-      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_input, {
-        id: "username",
-        type: "text",
-        "class": "mt-1 block w-full",
-        modelValue: _ctx.form.username,
-        "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
-          return _ctx.form.username = $event;
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_authentication_card, null, {
+        logo: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_authentication_card_logo)];
         }),
-        required: "",
-        autofocus: "",
-        autocomplete: "name"
-      }, null, 8
-      /* PROPS */
-      , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_label, {
-        "for": "email",
-        value: "Email"
-      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_input, {
-        id: "email",
-        type: "email",
-        "class": "mt-1 block w-full",
-        modelValue: _ctx.form.email,
-        "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
-          return _ctx.form.email = $event;
-        }),
-        required: ""
-      }, null, 8
-      /* PROPS */
-      , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_label, {
-        "for": "password",
-        value: "Password"
-      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_input, {
-        id: "password",
-        type: "password",
-        "class": "mt-1 block w-full",
-        modelValue: _ctx.form.password,
-        "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
-          return _ctx.form.password = $event;
-        }),
-        required: "",
-        autocomplete: "new-password"
-      }, null, 8
-      /* PROPS */
-      , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_label, {
-        "for": "password_confirmation",
-        value: "Confirm Password"
-      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_input, {
-        id: "password_confirmation",
-        type: "password",
-        "class": "mt-1 block w-full",
-        modelValue: _ctx.form.password_confirmation,
-        "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
-          return _ctx.form.password_confirmation = $event;
-        }),
-        required: "",
-        autocomplete: "new-password"
-      }, null, 8
-      /* PROPS */
-      , ["modelValue"])]), _ctx.$page.props.jetstream.hasTermsAndPrivacyPolicyFeature ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_label, {
-        "for": "terms"
-      }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_checkbox, {
-            name: "terms",
-            id: "terms",
-            checked: _ctx.form.terms,
-            "onUpdate:checked": _cache[4] || (_cache[4] = function ($event) {
-              return _ctx.form.terms = $event;
-            })
+          return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_validation_errors, {
+            "class": "mb-4"
+          }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+            onSubmit: _cache[5] || (_cache[5] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+              return _ctx.submit && _ctx.submit.apply(_ctx, arguments);
+            }, ["prevent"]))
+          }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_label, {
+            "for": "username",
+            value: "Username"
+          }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_input, {
+            id: "username",
+            type: "text",
+            "class": "block w-full mt-1",
+            modelValue: _ctx.form.username,
+            "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+              return _ctx.form.username = $event;
+            }),
+            required: "",
+            autofocus: "",
+            autocomplete: "name"
           }, null, 8
           /* PROPS */
-          , ["checked"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-            target: "_blank",
-            href: _ctx.route('terms.show'),
-            "class": "underline text-sm text-gray-600 hover:text-gray-900"
-          }, "Terms of Service", 8
+          , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_label, {
+            "for": "email",
+            value: "Email"
+          }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_input, {
+            id: "email",
+            type: "email",
+            "class": "block w-full mt-1",
+            modelValue: _ctx.form.email,
+            "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+              return _ctx.form.email = $event;
+            }),
+            required: ""
+          }, null, 8
           /* PROPS */
-          , _hoisted_8), _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-            target: "_blank",
-            href: _ctx.route('policy.show'),
-            "class": "underline text-sm text-gray-600 hover:text-gray-900"
-          }, "Privacy Policy", 8
+          , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_label, {
+            "for": "password",
+            value: "Password"
+          }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_input, {
+            id: "password",
+            type: "password",
+            "class": "block w-full mt-1",
+            modelValue: _ctx.form.password,
+            "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+              return _ctx.form.password = $event;
+            }),
+            required: "",
+            autocomplete: "new-password"
+          }, null, 8
           /* PROPS */
-          , _hoisted_10)])])];
+          , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_label, {
+            "for": "password_confirmation",
+            value: "Confirm Password"
+          }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_input, {
+            id: "password_confirmation",
+            type: "password",
+            "class": "block w-full mt-1",
+            modelValue: _ctx.form.password_confirmation,
+            "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+              return _ctx.form.password_confirmation = $event;
+            }),
+            required: "",
+            autocomplete: "new-password"
+          }, null, 8
+          /* PROPS */
+          , ["modelValue"])]), _ctx.$page.props.jetstream.hasTermsAndPrivacyPolicyFeature ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_label, {
+            "for": "terms"
+          }, {
+            "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+              return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_checkbox, {
+                name: "terms",
+                id: "terms",
+                checked: _ctx.form.terms,
+                "onUpdate:checked": _cache[4] || (_cache[4] = function ($event) {
+                  return _ctx.form.terms = $event;
+                })
+              }, null, 8
+              /* PROPS */
+              , ["checked"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+                target: "_blank",
+                href: _ctx.route('terms.show'),
+                "class": "text-sm text-gray-600 underline hover:text-gray-900"
+              }, "Terms of Service", 8
+              /* PROPS */
+              , _hoisted_8), _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+                target: "_blank",
+                href: _ctx.route('policy.show'),
+                "class": "text-sm text-gray-600 underline hover:text-gray-900"
+              }, "Privacy Policy", 8
+              /* PROPS */
+              , _hoisted_10)])])];
+            }),
+            _: 1
+            /* STABLE */
+
+          })])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+            href: _ctx.route('login'),
+            "class": "text-sm text-gray-600 underline hover:text-gray-900"
+          }, {
+            "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+              return [_hoisted_12];
+            }),
+            _: 1
+            /* STABLE */
+
+          }, 8
+          /* PROPS */
+          , ["href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_button, {
+            "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["ml-4", {
+              'opacity-25': _ctx.form.processing
+            }]),
+            disabled: _ctx.form.processing
+          }, {
+            "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+              return [_hoisted_13];
+            }),
+            _: 1
+            /* STABLE */
+
+          }, 8
+          /* PROPS */
+          , ["class", "disabled"])])], 32
+          /* HYDRATE_EVENTS */
+          )];
         }),
         _: 1
         /* STABLE */
 
-      })])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
-        href: _ctx.route('login'),
-        "class": "underline text-sm text-gray-600 hover:text-gray-900"
-      }, {
-        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_12];
-        }),
-        _: 1
-        /* STABLE */
-
-      }, 8
-      /* PROPS */
-      , ["href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_button, {
-        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["ml-4", {
-          'opacity-25': _ctx.form.processing
-        }]),
-        disabled: _ctx.form.processing
-      }, {
-        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_13];
-        }),
-        _: 1
-        /* STABLE */
-
-      }, 8
-      /* PROPS */
-      , ["class", "disabled"])])], 32
-      /* HYDRATE_EVENTS */
-      )];
+      })];
     }),
     _: 1
     /* STABLE */
