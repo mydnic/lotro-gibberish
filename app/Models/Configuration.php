@@ -11,6 +11,10 @@ class Configuration extends Model
 {
     use HasFactory, Likeable;
 
+    protected $appends = [
+        'formatted_description'
+    ];
+
     protected $fillable = [
         'title',
         'description',
@@ -46,7 +50,7 @@ class Configuration extends Model
         return $query->where('is_public', true);
     }
 
-    public function formattedDescription()
+    public function getFormattedDescriptionAttribute()
     {
         $content = $this->description;
 

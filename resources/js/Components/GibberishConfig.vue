@@ -45,7 +45,9 @@
         </div>
         <modal :show="showModal" @close="closeModal" max-width="md">
             <div class="p-10">
-                <pre class="p-2 overflow-auto text-sm bg-gray-100 border border-gray-300 rounded-md" v-html="config.code" />
+                <div class="prose break-words truncate whitespace-normal" v-html="config.formatted_description" />
+
+                <pre class="p-2 overflow-auto text-sm bg-gray-100 border border-gray-300 rounded-md mt-14" v-html="config.code" />
 
                 <div class="flex items-center justify-end mt-4">
                     <jet-action-message :on="copied" class="mr-3">

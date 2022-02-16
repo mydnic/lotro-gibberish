@@ -25055,13 +25055,14 @@ var _hoisted_19 = {
   "class": "p-10"
 };
 var _hoisted_20 = ["innerHTML"];
-var _hoisted_21 = {
+var _hoisted_21 = ["innerHTML"];
+var _hoisted_22 = {
   "class": "flex items-center justify-end mt-4"
 };
 
-var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Copied ! ");
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Copied ! ");
 
-var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   "class": "w-5 h-5",
   fill: "none",
@@ -25076,7 +25077,7 @@ var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_24 = [_hoisted_23];
+var _hoisted_25 = [_hoisted_24];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _ctx$config$like_coun;
 
@@ -25144,17 +25145,22 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "max-width": "md"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("pre", {
-        "class": "p-2 overflow-auto text-sm bg-gray-100 border border-gray-300 rounded-md",
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+        "class": "prose break-words truncate whitespace-normal",
+        innerHTML: _ctx.config.formatted_description
+      }, null, 8
+      /* PROPS */
+      , _hoisted_20), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("pre", {
+        "class": "p-2 overflow-auto text-sm bg-gray-100 border border-gray-300 rounded-md mt-14",
         innerHTML: _ctx.config.code
       }, null, 8
       /* PROPS */
-      , _hoisted_20), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_action_message, {
+      , _hoisted_21), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_action_message, {
         on: _ctx.copied,
         "class": "mr-3"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_22];
+          return [_hoisted_23];
         }),
         _: 1
         /* STABLE */
@@ -25165,7 +25171,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         onClick: _cache[2] || (_cache[2] = function () {
           return _ctx.copy && _ctx.copy.apply(_ctx, arguments);
         })
-      }, _hoisted_24)])])];
+      }, _hoisted_25)])])];
     }),
     _: 1
     /* STABLE */
@@ -25266,7 +25272,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  src: "/logo/logo.svg",
+  src: "/logo/logo.png",
   alt: "logo"
 };
 function render(_ctx, _cache) {
@@ -26334,7 +26340,7 @@ var _hoisted_2 = {
   "class": "bg-white border-b border-gray-100"
 };
 var _hoisted_3 = {
-  "class": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+  "class": "px-4 mx-auto max-w-7xl sm:px-6 lg:px-8"
 };
 var _hoisted_4 = {
   "class": "flex justify-between h-16"
@@ -26343,13 +26349,13 @@ var _hoisted_5 = {
   "class": "flex"
 };
 var _hoisted_6 = {
-  "class": "shrink-0 flex items-center"
+  "class": "flex items-center shrink-0"
 };
 
 var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "/logo/logo-large.svg",
+  src: "/logo/logo-large.png",
   alt: "logo",
-  "class": "block h-10 w-auto"
+  "class": "block w-auto h-10"
 }, null, -1
 /* HOISTED */
 );
@@ -26364,14 +26370,14 @@ var _hoisted_9 = {
   "class": "hidden sm:flex sm:items-center sm:ml-6"
 };
 var _hoisted_10 = {
-  "class": "ml-3 relative"
+  "class": "relative ml-3"
 };
 var _hoisted_11 = {
   "class": "inline-flex rounded-md"
 };
 var _hoisted_12 = {
   type: "button",
-  "class": "inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition"
+  "class": "inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition bg-white border border-transparent rounded-md hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50"
 };
 
 var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
@@ -26419,7 +26425,7 @@ var _hoisted_21 = {
 };
 var _hoisted_22 = {
   key: 0,
-  "class": "mr-2 h-5 w-5 text-green-400",
+  "class": "w-5 h-5 mr-2 text-green-400",
   fill: "none",
   "stroke-linecap": "round",
   "stroke-linejoin": "round",
@@ -26437,11 +26443,11 @@ var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 var _hoisted_24 = [_hoisted_23];
 var _hoisted_25 = {
   key: 0,
-  "class": "ml-3 relative"
+  "class": "relative ml-3"
 };
 var _hoisted_26 = {
   key: 0,
-  "class": "flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition"
+  "class": "flex text-sm transition border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300"
 };
 var _hoisted_27 = ["src", "alt"];
 var _hoisted_28 = {
@@ -26450,7 +26456,7 @@ var _hoisted_28 = {
 };
 var _hoisted_29 = {
   type: "button",
-  "class": "inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition"
+  "class": "inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition bg-white border border-transparent rounded-md hover:text-gray-700 focus:outline-none"
 };
 
 var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
@@ -26502,10 +26508,10 @@ var _hoisted_39 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNo
 var _hoisted_40 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Register ");
 
 var _hoisted_41 = {
-  "class": "-mr-2 flex items-center sm:hidden"
+  "class": "flex items-center -mr-2 sm:hidden"
 };
 var _hoisted_42 = {
-  "class": "h-6 w-6",
+  "class": "w-6 h-6",
   stroke: "currentColor",
   fill: "none",
   viewBox: "0 0 24 24"
@@ -26519,14 +26525,14 @@ var _hoisted_44 = {
 };
 var _hoisted_45 = {
   key: 0,
-  "class": "shrink-0 mr-3"
+  "class": "mr-3 shrink-0"
 };
 var _hoisted_46 = ["src", "alt"];
 var _hoisted_47 = {
-  "class": "font-medium text-base text-gray-800"
+  "class": "text-base font-medium text-gray-800"
 };
 var _hoisted_48 = {
-  "class": "font-medium text-sm text-gray-500"
+  "class": "text-sm font-medium text-gray-500"
 };
 var _hoisted_49 = {
   "class": "mt-3 space-y-1"
@@ -26572,7 +26578,7 @@ var _hoisted_60 = {
 };
 var _hoisted_61 = {
   key: 0,
-  "class": "mr-2 h-5 w-5 text-green-400",
+  "class": "w-5 h-5 mr-2 text-green-400",
   fill: "none",
   "stroke-linecap": "round",
   "stroke-linejoin": "round",
@@ -26605,7 +26611,7 @@ var _hoisted_68 = {
   "class": "bg-white shadow"
 };
 var _hoisted_69 = {
-  "class": "max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8"
+  "class": "px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Head = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Head");
@@ -26712,7 +26718,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, {
     trigger: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_ctx.$page.props.jetstream.managesProfilePhotos ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", _hoisted_26, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-        "class": "h-8 w-8 rounded-full object-cover",
+        "class": "object-cover w-8 h-8 rounded-full",
         src: _ctx.$page.props.user.profile_photo_url,
         alt: _ctx.$page.props.user.name
       }, null, 8
@@ -26805,7 +26811,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[1] || (_cache[1] = function ($event) {
       return _ctx.showingNavigationDropdown = !_ctx.showingNavigationDropdown;
     }),
-    "class": "inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition"
+    "class": "inline-flex items-center justify-center p-2 text-gray-400 transition rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500"
   }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", _hoisted_42, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
       'hidden': _ctx.showingNavigationDropdown,
@@ -26834,7 +26840,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       'hidden': !_ctx.showingNavigationDropdown
     }, "sm:hidden"])
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"pt-2 pb-3 space-y-1\">\n                        <jet-responsive-nav-link :href=\"route('dashboard')\" :active=\"route().current('dashboard')\">\n                            Dashboard\n                        </jet-responsive-nav-link>\n                    </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Responsive Settings Options "), _ctx.$page.props.user ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_43, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_44, [_ctx.$page.props.jetstream.managesProfilePhotos ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_45, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-    "class": "h-10 w-10 rounded-full object-cover",
+    "class": "object-cover w-10 h-10 rounded-full",
     src: _ctx.$page.props.user.profile_photo_url,
     alt: _ctx.$page.props.user.name
   }, null, 8
@@ -30834,7 +30840,7 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "space-y-8 xl:col-span-1"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   "class": "h-20",
-  src: "/logo/logo.svg",
+  src: "/logo/logo.png",
   alt: "Lotro gibberish config logo"
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "text-base text-gray-500"
