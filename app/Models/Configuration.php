@@ -54,7 +54,7 @@ class Configuration extends Model
     {
         $content = $this->description;
 
-        $regex_images = '~https?://\S+?(?:png|gif|jpe?g)~';
+        $regex_images = '~https?://\S+?(?:JPEG|JPG|GIF|PNG|png|gif|jpe?g)~';
         $regex_links = '~
                         (?<!src=\') # negative lookbehind (no src=\' allowed!)
                         https?://   # http:// or https://
