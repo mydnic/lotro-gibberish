@@ -1,7 +1,7 @@
 <template>
     <app-layout title="All Configs">
         <template #header>
-            <h2 class="text-xl font-semibold leading-tight text-gray-800">
+            <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-white">
                 All Configs
             </h2>
         </template>
@@ -11,7 +11,7 @@
                 <div class="flex items-center space-x-8">
                     <div class="relative block grow">
                         <div class="absolute inset-y-0 left-0 flex items-center px-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-400 dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                         </div>
                         <jet-input id="search" placeholder="Search..." type="search" class="block w-full pl-10" v-model="filters.search" autofocus />
                     </div>
@@ -21,21 +21,21 @@
                         <label for="lang.fr" class="flex items-center">
                             <jet-checkbox name="lang.fr" id="lang.fr" v-model:checked="filters.languages.fr" />
 
-                            <div class="ml-1 uppercase">
+                            <div class="ml-1 uppercase dark:text-white">
                                 FR
                             </div>
                         </label>
                         <label for="lang.de" class="flex items-center">
                             <jet-checkbox name="lang.de" id="lang.de" v-model:checked="filters.languages.de" />
 
-                            <div class="ml-1 uppercase">
+                            <div class="ml-1 uppercase dark:text-white">
                                 de
                             </div>
                         </label>
                         <label for="lang.en" class="flex items-center">
                             <jet-checkbox name="lang.en" id="lang.en" v-model:checked="filters.languages.en" />
 
-                            <div class="ml-1 uppercase">
+                            <div class="ml-1 uppercase dark:text-white">
                                 en
                             </div>
                         </label>
