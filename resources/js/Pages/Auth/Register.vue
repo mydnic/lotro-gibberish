@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="flex items-center justify-end mt-4">
-                    <Link :href="route('login')" class="text-sm text-gray-600 underline hover:text-gray-900">
+                    <Link :href="route('login')" class="text-sm text-gray-600 underline dark:text-white hover:text-gray-900">
                         Already registered?
                     </Link>
 

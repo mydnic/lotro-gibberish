@@ -22,11 +22,11 @@
                 <div class="block mt-4">
                     <label class="flex items-center">
                         <jet-checkbox name="remember" v-model:checked="form.remember" />
-                        <span class="ml-2 text-sm text-gray-600">Remember me</span>
+                        <span class="ml-2 text-sm text-gray-600 dark:text-gray-100">Remember me</span>
                     </label>
                 </div>
                 <div class="flex items-center justify-end mt-4">
-                    <Link v-if="canResetPassword" :href="route('password.request')" class="text-sm text-gray-600 underline hover:text-gray-900">
+                    <Link v-if="canResetPassword" :href="route('password.request')" class="text-sm text-gray-600 underline dark:text-white hover:text-gray-900">
                         Forgot your password?
                     </Link>
                     <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
