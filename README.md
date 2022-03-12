@@ -39,5 +39,7 @@ Mydnic#7847 on discord
 # Changelog
 
 ## 2022-03-01
-
 - Added Dark Mode (based on computer / browser settings)
+
+## 2022-03-12
+- Put the copy button above the config's code
