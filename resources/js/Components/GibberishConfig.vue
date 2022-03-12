@@ -47,7 +47,7 @@
             <div class="p-10">
                 <div class="prose break-words truncate whitespace-normal" v-html="config.formatted_description" />
 
-                <div class="flex items-center justify-end mt-4">
+                <div class="flex items-center justify-end mb-4">
                     <jet-action-message :on="copied" class="mr-3">
                         Copied !
                     </jet-action-message>
