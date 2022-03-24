@@ -25055,14 +25055,13 @@ var _hoisted_19 = {
   "class": "p-10"
 };
 var _hoisted_20 = ["innerHTML"];
-var _hoisted_21 = ["innerHTML"];
-var _hoisted_22 = {
-  "class": "flex items-center justify-end mt-4"
+var _hoisted_21 = {
+  "class": "flex items-center justify-end mb-4"
 };
 
-var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Copied ! ");
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Copied ! ");
 
-var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   "class": "w-5 h-5",
   fill: "none",
@@ -25077,7 +25076,8 @@ var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_25 = [_hoisted_24];
+var _hoisted_24 = [_hoisted_23];
+var _hoisted_25 = ["textContent"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _ctx$config$like_coun;
 
@@ -25146,21 +25146,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-        "class": "prose break-words truncate whitespace-normal",
+        "class": "prose break-words truncate whitespace-normal mb-14",
         innerHTML: _ctx.config.formatted_description
       }, null, 8
       /* PROPS */
-      , _hoisted_20), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("pre", {
-        "class": "p-2 overflow-auto text-sm bg-gray-100 border border-gray-300 rounded-md mt-14",
-        innerHTML: _ctx.config.code
-      }, null, 8
-      /* PROPS */
-      , _hoisted_21), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_action_message, {
+      , _hoisted_20), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_action_message, {
         on: _ctx.copied,
         "class": "mr-3"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_23];
+          return [_hoisted_22];
         }),
         _: 1
         /* STABLE */
@@ -25171,7 +25166,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         onClick: _cache[2] || (_cache[2] = function () {
           return _ctx.copy && _ctx.copy.apply(_ctx, arguments);
         })
-      }, _hoisted_25)])])];
+      }, _hoisted_24)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("pre", {
+        "class": "p-2 overflow-auto text-sm bg-gray-100 border border-gray-300 rounded-md",
+        textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.config.code)
+      }, null, 8
+      /* PROPS */
+      , _hoisted_25)])];
     }),
     _: 1
     /* STABLE */
@@ -29510,7 +29510,7 @@ var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_25 = {
-  "class": "flex items-center mt-2 text-sm text-gray-500 uppercase dark:3ext-gray-100",
+  "class": "flex items-center mt-2 text-sm text-gray-500 uppercase dark:text-gray-300 dark:3ext-gray-100",
   title: "Author"
 };
 
@@ -29573,14 +29573,13 @@ var _hoisted_31 = ["innerHTML"];
 var _hoisted_32 = {
   "class": "p-10"
 };
-var _hoisted_33 = ["innerHTML"];
-var _hoisted_34 = {
-  "class": "flex items-center justify-end mt-4"
+var _hoisted_33 = {
+  "class": "flex items-center justify-end mb-4"
 };
 
-var _hoisted_35 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Copied ! ");
+var _hoisted_34 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Copied ! ");
 
-var _hoisted_36 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_35 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   "class": "w-5 h-5 dark:text-white",
   fill: "none",
@@ -29595,7 +29594,8 @@ var _hoisted_36 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_37 = [_hoisted_36];
+var _hoisted_36 = [_hoisted_35];
+var _hoisted_37 = ["textContent"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
 
@@ -29657,17 +29657,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         innerHTML: _ctx.configuration.formatted_description
       }, null, 8
       /* PROPS */
-      , _hoisted_31), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_32, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("pre", {
-        "class": "p-2 overflow-auto text-sm bg-gray-100 border border-gray-300 rounded-md",
-        innerHTML: _ctx.configuration.code
-      }, null, 8
-      /* PROPS */
-      , _hoisted_33), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_action_message, {
+      , _hoisted_31), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_32, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_33, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_action_message, {
         on: _ctx.copied,
         "class": "mr-3"
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_35];
+          return [_hoisted_34];
         }),
         _: 1
         /* STABLE */
@@ -29678,7 +29673,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         onClick: _cache[0] || (_cache[0] = function () {
           return _ctx.copy && _ctx.copy.apply(_ctx, arguments);
         })
-      }, _hoisted_37)])])])])])];
+      }, _hoisted_36)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("pre", {
+        "class": "p-2 overflow-auto text-sm bg-gray-100 border border-gray-300 rounded-md",
+        textContent: (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.configuration.code)
+      }, null, 8
+      /* PROPS */
+      , _hoisted_37)])])])])];
     }),
     _: 1
     /* STABLE */

@@ -56,7 +56,7 @@
                     </button>
                 </div>
 
-                <pre class="p-2 overflow-auto text-sm bg-gray-100 border border-gray-300 rounded-md" v-html="config.code" />
+                <pre class="p-2 overflow-auto text-sm bg-gray-100 border border-gray-300 rounded-md" v-text="config.code" />
             </div>
         </modal>
     </div>
