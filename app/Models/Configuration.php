@@ -52,7 +52,7 @@ class Configuration extends Model
 
     public function getFormattedDescriptionAttribute()
     {
-        $content = $this->description;
+        $content = htmlspecialchars($this->description);
 
         $regex_images = '~https?://\S+?(?:JPEG|JPG|GIF|PNG|png|gif|jpe?g)~';
         $regex_links = '~
