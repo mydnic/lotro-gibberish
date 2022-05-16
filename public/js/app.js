@@ -26376,7 +26376,7 @@ var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "/logo/logo-large_white.svg",
+  src: "/logo/logo-larger_white.svg",
   alt: "logo",
   "class": "hidden w-auto h-10 dark:block"
 }, null, -1
@@ -30867,7 +30867,7 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   alt: "Lotro gibberish config logo"
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   "class": "hidden h-20 dark:block",
-  src: "/logo/logo_white.svg",
+  src: "/logo/logo-larger_white.svg",
   alt: "Lotro gibberish config logo"
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   "class": "mt-8 text-base text-gray-500 dark:text-gray-300"
