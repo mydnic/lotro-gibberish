@@ -28,9 +28,7 @@ class ConfigurationObserver
      */
     public function updated(Configuration $configuration)
     {
-        $userIds = $configuration->likes->pluck('user_id');
-        $users = User::whereIn('id', $userIds)->get();
-        Notification::send($users, new ConfigurationUpdatedNotification($configuration));
+        //
     }
 
     /**

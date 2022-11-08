@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreConfigurationRequest;
-use App\Http\Requests\UpdateConfigurationRequest;
+use Inertia\Inertia;
 use App\Models\Category;
 use App\Models\Configuration;
-use Inertia\Inertia;
+use App\Http\Controllers\Controller;
+use App\Jobs\NotifyUsersThatConfigIsUpdated;
+use App\Http\Requests\StoreConfigurationRequest;
+use App\Http\Requests\UpdateConfigurationRequest;
 
 class ConfigurationController extends Controller
 {
@@ -81,6 +82,8 @@ class ConfigurationController extends Controller
         $configuration->update($request->validated());
 
         $configuration->increment('updated_count');
+
+        dispatch(new NotifyUsersThatConfigIsUpdated($configuration));
 
         return back()->banner('Configuration updated successfully.');
     }
