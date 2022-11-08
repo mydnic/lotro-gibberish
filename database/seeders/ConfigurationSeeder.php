@@ -2,10 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Category;
 use App\Models\Configuration;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class ConfigurationSeeder extends Seeder
 {

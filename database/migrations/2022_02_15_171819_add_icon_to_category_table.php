@@ -17,5 +17,4 @@ return new class extends Migration
             $table->string('icon_path')->nullable();
         });
     }
-
 };

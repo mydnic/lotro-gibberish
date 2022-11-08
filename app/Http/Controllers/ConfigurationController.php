@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreConfigurationRequest;
 use App\Http\Requests\UpdateConfigurationRequest;
 use App\Models\Category;
 use App\Models\Configuration;

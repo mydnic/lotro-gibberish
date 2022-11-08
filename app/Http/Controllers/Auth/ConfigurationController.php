@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Inertia\Inertia;
-use App\Models\Category;
-use App\Models\Configuration;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreConfigurationRequest;
 use App\Http\Requests\UpdateConfigurationRequest;
+use App\Models\Category;
+use App\Models\Configuration;
+use Inertia\Inertia;
 
 class ConfigurationController extends Controller
 {

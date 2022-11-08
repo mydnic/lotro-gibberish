@@ -2,17 +2,17 @@
 
 namespace App\Models;
 
-use Webpatser\Uuid\Uuid;
 use Conner\Likeable\Likeable;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Webpatser\Uuid\Uuid;
 
 class Configuration extends Model
 {
     use HasFactory, Likeable;
 
     protected $appends = [
-        'formatted_description'
+        'formatted_description',
     ];
 
     protected $fillable = [
@@ -60,10 +60,11 @@ class Configuration extends Model
                         https?://   # http:// or https://
                         \S+         # anything not a whitespace
                         \b          # a word boundary
-                        ~x';        # verbose modifier for these explanations
+                        ~x';        // verbose modifier for these explanations
 
         $content = preg_replace($regex_images, "<img src='\\0'>", $content);
         $content = preg_replace($regex_links, "<a href='\\0'>\\0</a>", $content);
+
         return $content;
     }
 
