@@ -38,6 +38,9 @@ Mydnic#7847 on discord
 
 # Changelog
 
+## 2022-11-08
+- Added Notification to users who starred a config when the later is updated by its author
+
 ## 2022-05-16
 - New logo thanks to #dt192
 
