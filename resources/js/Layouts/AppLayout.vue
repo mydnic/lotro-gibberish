@@ -13,8 +13,8 @@
                             <!-- Logo -->
                             <div class="flex items-center shrink-0">
                                 <Link :href="route('home')">
-                                    <img src="/logo/logo-large.svg" alt="logo" class="block w-auto h-10 dark:hidden" />
-                                    <img src="/logo/logo-larger_white.svg" alt="logo" class="hidden w-auto h-10 dark:block" />
+                                    <img :src="'/logo/logo-large.svg'" alt="logo" class="block w-auto h-10 dark:hidden" />
+                                    <img :src="'/logo/logo-larger_white.svg'" alt="logo" class="hidden w-auto h-10 dark:block" />
                                 </Link>
                             </div>
 

@@ -5,10 +5,13 @@ import Components from 'unplugin-vue-components/vite'
 
 export default defineConfig({
     plugins: [
-        laravel([
-            'resources/js/app.js',
-            'resources/css/app.css'
-        ]),
+        laravel({
+            input:[
+                'resources/js/app.js',
+                'resources/css/app.css'
+            ],
+            ssr: 'resources/js/ssr.js',
+        }),
         vue(),
         Components({
             dirs: ['resources/js/Components'],
