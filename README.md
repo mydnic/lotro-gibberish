@@ -30,13 +30,16 @@ run `php artisan migrate`
 
 run `yarn`
 
-run `yarn dev` or `yarn watch`
+run `yarn dev`
 
 # Contact
 
 Mydnic#7847 on discord
 
 # Changelog
+
+## 2023-05-11
+- Users can now upload images to their config description
 
 ## 2022-11-08
 - Added Notification to users who starred a config when the later is updated by its author

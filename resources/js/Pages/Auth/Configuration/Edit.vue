@@ -25,10 +25,36 @@
                     </div>
 
                     <div class="mt-4">
-                        <jet-label for="description" value="Description" />
-                        <jet-textarea id="description" placeholder="Write a small description about this gibberish config... what it does, etc. Links are automatically formated." class="block w-full mt-1" v-model="form.description" required />
-                        <p class="mt-1 text-xs italic text-gray-500">
-                            Links are automatically formated and images (url) are automatically embeded.
+                        <div class="flex items-center justify-between">
+                            <jet-label for="description" value="Description" />
+                            <span v-if="uploading" class="flex space-x-2 text-sm text-white itemsc-center">
+                                <svg class="w-4 h-4 text-white animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                <span>Uploading image...</span>
+                            </span>
+                            <label v-else for="image" class="cursor-pointer">
+                                <input multiple accept="image/*" type="file" id="image" class="hidden" name="image" @change="fileChange">
+                                <svg class="w-5 h-5 text-gray-700 dark:text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></svg>
+                            </label>
+                        </div>
+                        <jet-textarea
+                            @drop.prevent="onDrop"
+                            @dragover="dragging = true"
+                            @dragleave="dragging = false"
+                            id="description"
+                            placeholder="Write a small description about this gibberish config... what it does, etc. Links are automatically formated."
+                            class="block w-full mt-1"
+                            :class="{
+                                'bg-gray-100/10': dragging
+                            }"
+                            v-model="form.description"
+                            @paste="pasteFunction"
+                            required
+                        />
+                        <p class="mt-1 text-xs italic text-gray-500 dark:text-gray-300">
+                            Links are automatically formated and images (url) are automatically embeded, you can paste an image to upload it.
                         </p>
                     </div>
 
@@ -115,6 +141,7 @@ import JetCheckbox from '@/Jetstream/Checkbox.vue'
 import JetLabel from '@/Jetstream/Label.vue'
 import DeleteConfigButton from '@/Components/DeleteConfigButton.vue'
 import JetValidationErrors from '@/Jetstream/ValidationErrors.vue'
+import axios from 'axios'
 
 export default defineComponent({
     props: ['categories', 'configuration'],
@@ -134,6 +161,8 @@ export default defineComponent({
 
     data() {
         return {
+            uploading: false,
+            dragging: false,
             form: this.$inertia.form({
                 title: this.configuration.title,
                 description: this.configuration.description,
@@ -155,6 +184,70 @@ export default defineComponent({
 
         goToPublicPage() {
             this.$inertia.visit(route('configuration.show', this.configuration.uuid))
+        },
+
+        pasteFunction(pasteEvent, callback) {
+            if(pasteEvent.clipboardData == false){
+                if(typeof(callback) == "function"){
+                    // console.log('Undefined ')
+                    callback(undefined);
+                }
+            };
+
+            var items = pasteEvent.clipboardData.items;
+
+            if(items == undefined){
+                if(typeof(callback) == "function"){
+                    callback(undefined);
+                    // console.log('Undefined 2')
+                }
+            };
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].type.indexOf("image") == -1) continue;
+                var blob = items[i].getAsFile();
+                this.addImage(blob)
+            }
+        },
+
+        onDrop(dropEvent) {
+            const items = dropEvent.dataTransfer.files
+
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].type.indexOf("image") == -1) continue;
+                var blob = items[i]
+                this.addImage(blob)
+            }
+        },
+
+        fileChange(event) {
+            const items = event.target.files
+
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].type.indexOf("image") == -1) continue;
+                var blob = items[i]
+                this.addImage(blob)
+            }
+        },
+
+        addImage(blob) {
+            this.uploading = true
+
+            const formData = new FormData()
+            formData.append('image', blob)
+
+            axios.post('/auth/upload',formData)
+                .then(response => {
+                    this.uploading = false
+                    this.dragging = false
+
+                    const url = response.data
+
+                    this.form.description += `\n`
+                    this.form.description += url
+                })
+                .catch(error => {
+                    alert('Error, maybe the file is too large.')
+                })
         }
     }
 })

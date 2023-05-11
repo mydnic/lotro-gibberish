@@ -10,7 +10,7 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/css/app.css'
             ],
-            ssr: 'resources/js/ssr.js',
+            // ssr: 'resources/js/ssr.js',
         }),
         vue(),
         Components({

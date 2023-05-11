@@ -42,13 +42,12 @@ export default defineComponent({
     data() {
         return {
             showDeleteModal: false,
-            form: this.$inertia.form(),
         }
     },
 
     methods: {
         deleteConfig() {
-            this.form.delete(route('user.configuration.destroy', this.configuration.uuid))
+            this.$inertia.delete(route('user.configuration.destroy', this.configuration.uuid))
         }
     }
 })
