@@ -13,4 +13,6 @@ Route::middleware('auth')->prefix('like')->group(function () {
 
 Route::prefix('auth')->middleware('auth')->as('user.')->group(function () {
     Route::resource('configuration', 'Auth\ConfigurationController');
+
+    Route::post('upload', 'Auth\Configuration\ImageController@store');
 });

@@ -1,4 +1,5 @@
 <template>
+    <Head title="Latest Configs" />
     <app-layout title="All Configs">
         <template #header>
             <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-white">
