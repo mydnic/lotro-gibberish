@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Str;
 use Conner\Likeable\Likeable;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Webpatser\Uuid\Uuid;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Configuration extends Model
 {
@@ -31,7 +31,7 @@ class Configuration extends Model
     {
         parent::boot();
         self::creating(function ($model) {
-            $model->uuid = (string) Uuid::generate(4);
+            $model->uuid = Str::uuid();
         });
     }
 
