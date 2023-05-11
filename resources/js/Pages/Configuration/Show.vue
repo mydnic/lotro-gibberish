@@ -88,7 +88,7 @@ import JetButton from '@/Jetstream/Button.vue'
 import JetSecondaryButton from '@/Jetstream/SecondaryButton.vue'
 import useClipboard from 'vue-clipboard3'
 const { toClipboard } = useClipboard()
-import { Link } from '@inertiajs/inertia-vue3';
+import { Link } from '@inertiajs/vue3';
 
 export default defineComponent({
     props: ['configuration', 'liked'],

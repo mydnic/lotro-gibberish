@@ -1,20 +1,21 @@
-require('./bootstrap');
+import { createApp, h } from 'vue'
+import { createInertiaApp, Link } from '@inertiajs/vue3'
 
-import { createApp, h } from 'vue';
-import { createInertiaApp } from '@inertiajs/inertia-vue3';
-import { InertiaProgress } from '@inertiajs/progress';
-
-const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Lotro Gibberish Configs';
+import AppLayout from './Layouts/AppLayout.vue'
 
 createInertiaApp({
-    title: (title) => `${title} - ${appName}`,
-    resolve: (name) => require(`./Pages/${name}.vue`),
-    setup({ el, app, props, plugin }) {
-        return createApp({ render: () => h(app, props) })
-            .use(plugin)
-            .mixin({ methods: { route } })
-            .mount(el);
+    resolve: name => {
+        const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
+        let page = pages[`./Pages/${name}.vue`]
+        page.default.layout = page.default.layout || AppLayout
+        return page
     },
-});
+    setup({ el, App, props, plugin }) {
+        const vueApp = createApp({ render: () => h(App, props) })
 
-InertiaProgress.init({ color: '#4B5563' });
+
+        vueApp.use(plugin)
+            .component('Link', Link)
+            .mount(el)
+    },
+})
