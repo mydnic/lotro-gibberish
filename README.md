@@ -45,7 +45,7 @@ Mydnic#7847 on discord
 - Users can now upload images to their config description
 
 ## 2022-11-08
-- Added Notification to users who starred a config when the later is updated by its author
+- Added Notification to users who starred a config when the latter is updated by its author
 
 ## 2022-05-16
 - New logo thanks to #dt192
