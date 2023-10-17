@@ -38,6 +38,9 @@ Mydnic#7847 on discord
 
 # Changelog
 
+## 2023-10-17
+- Add new category (Mariner class) - sorry for the delay
+
 ## 2023-05-11
 - Users can now upload images to their config description
 
