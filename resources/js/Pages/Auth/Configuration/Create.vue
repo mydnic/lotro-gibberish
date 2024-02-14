@@ -60,6 +60,18 @@
                     </div>
 
                     <div class="mt-4">
+                        <jet-label for="version" value="Plugin Version" />
+                        <select name="version" id="version" v-model="form.version" required class="block w-full py-2 pl-3 pr-10 mt-1 text-base border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            <option value="v2">
+                                Gibberish v2
+                            </option>
+                            <option value="v3">
+                                Gibberish v3
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="mt-4">
                         <jet-label for="language" value="Language" />
                         <div class="flex items-center mt-1 space-x-3">
                             <button
@@ -159,6 +171,7 @@ export default defineComponent({
                 title: '',
                 description: '',
                 code: '',
+                version: 'v3',
                 language: 'en',
                 category_id: null,
                 is_public: true,

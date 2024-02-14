@@ -11,6 +11,17 @@ class Configuration extends Model
 {
     use HasFactory, Likeable;
 
+    public const GIBBERISH_VERSION_2 = 'v2';
+    public const GIBBERISH_VERSION_3 = 'v3';
+
+    public static function versions(): array
+    {
+        return [
+            self::GIBBERISH_VERSION_2,
+            self::GIBBERISH_VERSION_3,
+        ];
+    }
+
     protected $appends = [
         'formatted_description',
     ];
@@ -20,6 +31,7 @@ class Configuration extends Model
         'description',
         'code',
         'category_id',
+        'version',
         'language',
         'is_public',
     ];

@@ -17,6 +17,23 @@
                         <jet-input id="search" placeholder="Search..." type="search" class="block w-full pl-10" v-model="filters.search" autofocus />
                     </div>
 
+                    <select
+                        name="version"
+                        id="version"
+                        v-model="filters.version"
+                        class="block py-2 pl-3 pr-10 mt-1 text-base border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    >
+                        <option selected :value="null" disabled>
+                            Plugin Version
+                        </option>
+                        <option value="v2">
+                            Gibberish v2
+                        </option>
+                        <option value="v3">
+                            Gibberish v3
+                        </option>
+                    </select>
+
                     <div class="items-center hidden space-x-5 md:flex">
                         <jet-label>Languages:</jet-label>
                         <label for="lang.fr" class="flex items-center">
@@ -130,21 +147,10 @@ export default defineComponent({
                     return true
                 })
                 .filter(config => {
-
-                    if (this.filters.languages.fr && config.language === 'fr') {
-                        return true
-                    }
-
-                    if (this.filters.languages.de && config.language === 'de') {
-                        return true
-                    }
-
-                    if (this.filters.languages.en && config.language === 'en') {
-                        return true
-                    }
-
-                    return false
-
+                    return this.filters.languages[config.language]
+                })
+                .filter(config => {
+                    return this.filters.version ? config.version === this.filters.version : true
                 })
                 .filter(config => {
                     if (this.selectedCategoryIds.length) {
@@ -159,6 +165,7 @@ export default defineComponent({
     data() {
         return {
             filters: {
+                version: null,
                 languages: {
                     fr: true,
                     de: true,

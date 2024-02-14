@@ -38,6 +38,9 @@ Mydnic#7847 on discord
 
 # Changelog
 
+## 2024-02-14
+- Handle Gibberish plugin version now that V3 is out
+
 ## 2023-10-17
 - Add new category (Mariner class) - sorry for the delay
 

@@ -1,5 +1,15 @@
 <template>
-    <div class="px-6 py-3 bg-white rounded dark:bg-slate-500">
+    <div class="px-6 py-3 bg-white relative rounded dark:bg-slate-500">
+
+        <div class="absolute right-2 top-2">
+            <span
+                class="inline-flex items-center rounded-full px-2 py-1 text-xs font-bold"
+                :class="{
+                        'bg-red-100 text-red-700': config.version === 'v2',
+                        'bg-green-100 text-green-700': config.version === 'v3',
+                    }"
+            >Gibberish {{ config.version }}</span>
+        </div>
 
         <div class="lg:flex lg:items-center lg:justify-between">
             <div class="flex-1 min-w-0">
