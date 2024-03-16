@@ -34,9 +34,12 @@ run `yarn dev`
 
 # Contact
 
-Mydnic#7847 on discord
+mydnic on discord
 
 # Changelog
+
+## 2024-03-16
+- Update discord handles
 
 ## 2024-02-14
 - Handle Gibberish plugin version now that V3 is out

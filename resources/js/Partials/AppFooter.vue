@@ -16,10 +16,10 @@
             <h3 class="text-sm font-semibold tracking-wider text-gray-400 uppercase">Contact (Discord)</h3>
             <ul role="list" class="mt-4 space-y-4">
               <li class="text-base text-gray-500 dark:text-gray-300">
-                Gibberish Plugin: <span class="font-semibold">Souru#4258</span>
+                Gibberish Plugin: <span class="font-semibold">souru.</span>
               </li>
               <li class="text-base text-gray-500 dark:text-gray-300">
-                Website: <span class="font-semibold">Mydnic#7847</span>
+                Website: <span class="font-semibold">mydnic</span>
               </li>
             </ul>
           </div>
