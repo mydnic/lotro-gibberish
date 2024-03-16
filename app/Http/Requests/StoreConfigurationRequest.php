@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Configuration;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreConfigurationRequest extends FormRequest
@@ -27,6 +28,7 @@ class StoreConfigurationRequest extends FormRequest
             'title' => 'required|max:255',
             'description' => 'nullable',
             'code' => 'required',
+            'version' => 'required|in:'.collect(Configuration::versions())->join(','),
             'category_id' => 'required|exists:categories,id',
             'language' => 'required|in:fr,de,en',
             'is_public' => 'required|boolean',

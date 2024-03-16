@@ -31,9 +31,16 @@
                             <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate dark:text-white">
                                 {{ configuration.title }}
                             </h2>
-                            <div class="text-lg text-gray-600 dark:text-gray-300">
-                                v{{ configuration.updated_count }}
-                            </div>
+
+                            <span
+                                class="inline-flex items-center rounded-full px-4 py-2 font-bold"
+                                :class="{
+                                    'bg-red-100 text-red-700': configuration.version === 'v2',
+                                    'bg-green-100 text-green-700': configuration.version === 'v3',
+                                }"
+                            >
+                                Gibberish {{ configuration.version }}
+                            </span>
                         </div>
                         <div class="flex flex-col mt-2 sm:flex-row sm:flex-wrap sm:space-x-6">
                             <div class="flex items-center mt-2 text-sm text-gray-500 dark:text-gray-300" title="Category">
@@ -50,13 +57,19 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 mr-1.5 h-5 w-5 dark:text-gray-200 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" /></svg>
                                 {{ configuration.language }}
                             </div>
+                            <div class="flex items-center mt-2 text-sm text-gray-500 dark:text-gray-300" title="Likes Count">
+                                <svg class="flex-shrink-0 mr-1.5 h-5 w-5 dark:text-gray-200 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
+                                {{ configuration.like_counter?.count || 0 }}
+                            </div>
                             <div class="flex items-center mt-2 text-sm text-gray-500 dark:text-gray-300" title="Last updated on">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 mr-1.5 h-5 w-5 dark:text-gray-200 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                                 {{ formatDate(configuration.updated_at) }}
                             </div>
                             <div class="flex items-center mt-2 text-sm text-gray-500 dark:text-gray-300" title="Likes Count">
-                                <svg class="flex-shrink-0 mr-1.5 h-5 w-5 dark:text-gray-200 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
-                                {{ configuration.like_counter?.count || 0 }}
+                                <svg class="flex-shrink-0 mr-1.5 h-5 w-5 dark:text-gray-200 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3"/>
+                                </svg>
+                                updated {{ configuration.updated_count }} times
                             </div>
                         </div>
                     </div>
