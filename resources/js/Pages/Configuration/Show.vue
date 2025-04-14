@@ -74,7 +74,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="pt-8 prose whitespace-pre dark:prose-invert dark:text-white" v-html="configuration.formatted_description" />
+                <div class="pt-8 prose whitespace-pre-line max-w-none dark:prose-invert dark:text-white" v-html="configuration.formatted_description" />
                 <div class="p-10">
                     <div class="flex items-center justify-end mb-4">
                         <jet-action-message :on="copied" class="mr-3">
