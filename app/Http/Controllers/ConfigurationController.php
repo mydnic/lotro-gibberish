@@ -12,10 +12,30 @@ class ConfigurationController extends Controller
     public function index()
     {
         $categories = Category::all();
+        
         $configurations = Configuration::public()
             ->with('category', 'user', 'likeCounter')
+            ->when(request('search'), function ($query, $search) {
+                $query->where(function ($q) use ($search) {
+                    $q->where('title', 'like', "%{$search}%")
+                      ->orWhere('description', 'like', "%{$search}%");
+                });
+            })
+            ->when(request('version'), function ($query, $version) {
+                $query->where('version', $version);
+            })
+            ->when(request('language'), function ($query, $language) {
+                $query->where('language', $language);
+            })
+            ->when(request('categories'), function ($query, $categories) {
+                $categoryIds = array_filter(array_map('intval', explode(',', $categories)));
+                if (!empty($categoryIds)) {
+                    $query->whereIn('category_id', $categoryIds);
+                }
+            })
             ->orderBy('updated_at', 'desc')
-            ->get();
+            ->paginate(12)
+            ->withQueryString();
 
         return inertia('Configuration/Index', [
             'categories' => $categories,
