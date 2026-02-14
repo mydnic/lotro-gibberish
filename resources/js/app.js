@@ -1,23 +1,11 @@
-import { createApp, h } from 'vue'
-import { createInertiaApp, Link, Head } from '@inertiajs/vue3'
+import './bootstrap';
+import { Livewire, LivewireRouter } from '../../vendor/livewire/livewire/dist/livewire.esm';
+import { createApp } from 'vue';
 
-// import AppLayout from './Layouts/AppLayout.vue'
+document.addEventListener('DOMContentLoaded', () => {
+    const app = createApp({});
+    
+    Livewire.start();
+    LivewireRouter.init({ mainElement: '#app', navigate: (url) => window.location.href = url });
+});
 
-createInertiaApp({
-    title: title => `${title} - Lotro Gibberish Config`,
-    resolve: name => {
-        const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
-        let page = pages[`./Pages/${name}.vue`]
-        // page.default.layout = page.default.layout || AppLayout
-        return page
-    },
-    setup({ el, App, props, plugin }) {
-        const vueApp = createApp({ render: () => h(App, props) })
-
-        vueApp.use(plugin)
-            .mixin({ methods: { route } })
-            .component('Link', Link)
-            .component('Head', Head)
-            .mount(el)
-    },
-})

@@ -1,18 +1,19 @@
 <?php
 
+use Flux\Flux;
+use Livewire\Volt\Volt;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', 'ConfigurationController@index')->name('home');
+Route::get('/', function () {
+    return view('welcome');
+})->name('home');
 
-Route::get('/config/create', 'ConfigurationController@create')->name('configuration.create')->middleware('auth');
-Route::get('/config/{configuration}', 'ConfigurationController@show')->name('configuration.show');
-
-Route::middleware('auth')->prefix('like')->group(function () {
-    Route::post('/config/{configuration}', 'LikeController@like')->name('configuration.like');
+Route::middleware(['auth', 'verified'])->group(function () {
+    // Configuration routes
+    Route::get('/configuration', \App\Livewire\ConfigurationIndex::class)->name('configuration.index');
+    Route::resource('configurations', \App\Http\Controllers\ConfigurationController::class)
+        ->except(['index']);
 });
 
-Route::prefix('auth')->middleware('auth')->as('user.')->group(function () {
-    Route::resource('configuration', 'Auth\ConfigurationController');
-
-    Route::post('upload', 'Auth\Configuration\ImageController@store');
-});
+// Authentication routes (provided by Laravel Fortify)
+require __DIR__.'/auth.php';
