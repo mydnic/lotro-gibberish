@@ -1,103 +1,136 @@
 <template>
-    <Head title="Register" />
+    <AppLayout title="Register">
+        <div class="h-[80vh] space-y-10 flex flex-col items-center justify-center">
+            <img
+                :src="'/logo/icon.svg'"
+                alt="Icon"
+            >
 
-    <app-layout title="Create an account">
-        <jet-authentication-card>
-            <template #logo>
-                <jet-authentication-card-logo />
-            </template>
+            <UCard class="md:w-1/2 w-full">
+                <template #header>
+                    <h2 class="text-lg font-medium text-gray-900 dark:text-white">
+                        Create an account
+                    </h2>
+                </template>
 
-            <jet-validation-errors class="mb-4" />
+                <UForm
+                    ref="form"
+                    :state="form"
+                    class="space-y-6"
+                    @submit.prevent="submit"
+                >
+                    <UFormField
+                        label="Username"
+                        required
+                        name="username"
+                    >
+                        <UInput
+                            v-model="form.username"
+                            type="text"
+                            class="w-full"
+                            required
+                            autofocus
+                            placeholder="Aragorn"
+                        />
+                    </UFormField>
 
-            <form @submit.prevent="submit">
-                <div>
-                    <jet-label for="username" value="Username" />
-                    <jet-input id="username" type="text" class="block w-full mt-1" v-model="form.username" required autofocus autocomplete="name" />
-                </div>
+                    <UFormField
+                        label="Email"
+                        required
+                        name="email"
+                    >
+                        <UInput
+                            v-model="form.email"
+                            type="email"
+                            class="w-full"
+                            required
+                            placeholder="aragon@lotro.com"
+                        />
+                    </UFormField>
 
-                <div class="mt-4">
-                    <jet-label for="email" value="Email" />
-                    <jet-input id="email" type="email" class="block w-full mt-1" v-model="form.email" required />
-                </div>
+                    <UFormField
+                        label="Password"
+                        required
+                        name="password"
+                    >
+                        <UInput
+                            v-model="form.password"
+                            type="password"
+                            class="w-full"
+                            required
+                            autocomplete="new-password"
+                        />
+                    </UFormField>
 
-                <div class="mt-4">
-                    <jet-label for="password" value="Password" />
-                    <jet-input id="password" type="password" class="block w-full mt-1" v-model="form.password" required autocomplete="new-password" />
-                </div>
+                    <UFormField
+                        label="Confirm Password"
+                        required
+                        name="password_confirmation"
+                    >
+                        <UInput
+                            v-model="form.password_confirmation"
+                            type="password"
+                            class="w-full"
+                            required
+                            autocomplete="new-password"
+                        />
+                    </UFormField>
 
-                <div class="mt-4">
-                    <jet-label for="password_confirmation" value="Confirm Password" />
-                    <jet-input id="password_confirmation" type="password" class="block w-full mt-1" v-model="form.password_confirmation" required autocomplete="new-password" />
-                </div>
+                    <div class="flex justify-end mt-6">
+                        <UButton
+                            type="submit"
+                            :loading="form.processing"
+                        >
+                            Register
+                        </UButton>
+                    </div>
+                </UForm>
+            </UCard>
 
-                <div class="mt-4" v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature">
-                    <jet-label for="terms">
-                        <div class="flex items-center">
-                            <jet-checkbox name="terms" id="terms" v-model:checked="form.terms" />
-
-                            <div class="ml-2">
-                                I agree to the <a target="_blank" :href="route('terms.show')" class="text-sm text-gray-600 underline hover:text-gray-900">Terms of Service</a> and <a target="_blank" :href="route('policy.show')" class="text-sm text-gray-600 underline hover:text-gray-900">Privacy Policy</a>
-                            </div>
-                        </div>
-                    </jet-label>
-                </div>
-
-                <div class="flex items-center justify-end mt-4">
-                    <Link :href="route('login')" class="text-sm text-gray-600 underline dark:text-white hover:text-gray-900">
-                        Already registered?
-                    </Link>
-
-                    <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                        Register
-                    </jet-button>
-                </div>
-            </form>
-        </jet-authentication-card>
-    </app-layout>
+            <p class="text-xs">
+                Already have an account? 
+                <UButton
+                    variant="link"
+                    size="xs"
+                    :href="route('login')"
+                >
+                    Log in
+                </UButton>
+            </p>
+        </div>
+    </AppLayout>
 </template>
 
 <script>
-import AppLayout from '@/Layouts/AppLayout.vue'
 import { defineComponent } from 'vue'
-import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue'
-import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo.vue'
-import JetButton from '@/Jetstream/Button.vue'
-import JetInput from '@/Jetstream/Input.vue'
-import JetCheckbox from '@/Jetstream/Checkbox.vue'
-import JetLabel from '@/Jetstream/Label.vue'
-import JetValidationErrors from '@/Jetstream/ValidationErrors.vue'
-import { Head, Link } from '@inertiajs/vue3';
 
 export default defineComponent({
-    components: {
-        Head,
-        AppLayout,
-        JetAuthenticationCard,
-        JetAuthenticationCardLogo,
-        JetButton,
-        JetInput,
-        JetCheckbox,
-        JetLabel,
-        JetValidationErrors,
-        Link,
+    props: {
+        errors: Object
     },
 
-    data() {
+    data () {
         return {
             form: this.$inertia.form({
                 username: '',
                 email: '',
                 password: '',
                 password_confirmation: '',
-                terms: false,
+                terms: false
             })
         }
     },
 
     methods: {
-        submit() {
+        submit () {
             this.form.post(this.route('register'), {
                 onFinish: () => this.form.reset('password', 'password_confirmation'),
+                onError: (errors) => {
+                    this.$refs.form.setErrors(Object.keys(errors).map(key => ({
+                        name: key,
+                        message: errors[key]
+                    })))
+                }
             })
         }
     }
