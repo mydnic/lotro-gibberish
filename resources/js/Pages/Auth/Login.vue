@@ -1,75 +1,104 @@
 <template>
-    <Head title="Log in" />
+    <AppLayout title="Login">
+        <div class="h-[80vh] space-y-10 flex flex-col items-center justify-center">
+            <img
+                :src="'/logo/icon.svg'"
+                alt="Icon"
+            >
 
-    <app-layout title="Login">
-        <jet-authentication-card>
-            <template #logo>
-                <jet-authentication-card-logo />
-            </template>
-            <jet-validation-errors class="mb-4" />
-            <div v-if="status" class="mb-4 text-sm font-medium text-green-600">
-                {{ status }}
-            </div>
-            <form @submit.prevent="submit">
-                <div>
-                    <jet-label for="email" value="Email" />
-                    <jet-input id="email" type="email" class="block w-full mt-1" v-model="form.email" required autofocus />
-                </div>
-                <div class="mt-4">
-                    <jet-label for="password" value="Password" />
-                    <jet-input id="password" type="password" class="block w-full mt-1" v-model="form.password" required autocomplete="current-password" />
-                </div>
-                <div class="block mt-4">
-                    <label class="flex items-center">
-                        <jet-checkbox name="remember" v-model:checked="form.remember" />
-                        <span class="ml-2 text-sm text-gray-600 dark:text-gray-100">Remember me</span>
-                    </label>
-                </div>
-                <div class="flex items-center justify-end mt-4">
-                    <Link v-if="canResetPassword" :href="route('password.request')" class="text-sm text-gray-600 underline dark:text-white hover:text-gray-900">
-                        Forgot your password?
-                    </Link>
-                    <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+            <UCard class="md:w-1/2 w-full">
+                <template #header>
+                    <h2 class="text-lg font-medium text-gray-900 dark:text-white">
                         Log in
-                    </jet-button>
-                </div>
-            </form>
-        </jet-authentication-card>
-    </app-layout>
+                    </h2>
+                </template>
+
+                <UForm
+                    ref="form"
+                    :state="form"
+                    class="space-y-6"
+                    @submit.prevent="submit"
+                >
+                    <UFormField
+                        label="Email"
+                        required
+                        name="email"
+                    >
+                        <UInput
+                            v-model="form.email"
+                            type="email"
+                            class="w-full"
+                            required
+                            autofocus
+                            placeholder="aragon@lotro.com"
+                        />
+                    </UFormField>
+
+                    <UFormField
+                        label="Password"
+                        required
+                        name="password"
+                    >
+                        <UInput
+                            v-model="form.password"
+                            type="password"
+                            class="w-full"
+                            required
+                            autofocus
+                        />
+                    </UFormField>
+
+                    <UFormField>
+                        <UCheckbox
+                            v-model="form.remember"
+                            name="remember"
+                            label="Remember me"
+                        />
+                    </UFormField>
+
+                    <div class="flex justify-between">
+                        <UButton
+                            :href="route('password.request')"
+                            variant="link"
+                        >
+                            Forgot your password?
+                        </UButton>
+                        <UButton
+                            type="submit"
+                            :loading="form.processing"
+                        >
+                            Log in
+                        </UButton>
+                    </div>
+                </UForm>
+            </UCard>
+
+            <p class="text-xs">
+                Don't have an account? <UButton
+                    variant="link"
+                    size="xs"
+                    href="{{ route('register') }}"
+                >
+                    Register
+                </UButton>
+            </p>
+
+            {{ form }}
+        </div>
+    </AppLayout>
 </template>
 
 <script>
-import AppLayout from '@/Layouts/AppLayout.vue'
 import { defineComponent } from 'vue'
-import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue'
-import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo.vue'
-import JetButton from '@/Jetstream/Button.vue'
-import JetInput from '@/Jetstream/Input.vue'
-import JetCheckbox from '@/Jetstream/Checkbox.vue'
-import JetLabel from '@/Jetstream/Label.vue'
-import JetValidationErrors from '@/Jetstream/ValidationErrors.vue'
-import { Head, Link } from '@inertiajs/vue3';
 
 export default defineComponent({
-    components: {
-        Head,
-        AppLayout,
-        JetAuthenticationCard,
-        JetAuthenticationCardLogo,
-        JetButton,
-        JetInput,
-        JetCheckbox,
-        JetLabel,
-        JetValidationErrors,
-        Link,
-    },
 
     props: {
         canResetPassword: Boolean,
         status: String
     },
 
-    data() {
+    data () {
         return {
             form: this.$inertia.form({
                 email: '',
@@ -80,14 +109,20 @@ export default defineComponent({
     },
 
     methods: {
-        submit() {
+        submit () {
             this.form
                 .transform(data => ({
-                    ... data,
+                    ...data,
                     remember: this.form.remember ? 'on' : ''
                 }))
                 .post(this.route('login'), {
                     onFinish: () => this.form.reset('password'),
+                    onError: (errors) => {
+                        this.$refs.form.setErrors(Object.keys(errors).map(key => ({
+                            name: key,
+                            message: errors[key]
+                        })))
+                    }
                 })
         }
     }

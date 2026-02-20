@@ -12,10 +12,10 @@
 
         <!-- Scripts -->
         @routes
-        @vite(['resources/js/app.js', 'resources/css/app.css'])
         @inertiaHead
+        @vite(['resources/js/app.js', 'resources/css/app.css'])
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased isolate">
         @inertia
     </body>
 </html>
