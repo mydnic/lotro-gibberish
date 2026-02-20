@@ -82,7 +82,7 @@
             </template>
         </UHeader>
 
-        <UContainer>
+        <UContainer class="py-12">
             <slot />
         </UContainer>
 

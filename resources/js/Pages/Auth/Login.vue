@@ -82,8 +82,6 @@
                     Register
                 </UButton>
             </p>
-
-            {{ form }}
         </div>
     </AppLayout>
 </template>
