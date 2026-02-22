@@ -2,8 +2,14 @@
     <AppLayout title="Register">
         <div class="h-[80vh] space-y-10 flex flex-col items-center justify-center">
             <img
+                class="block dark:hidden"
+                :src="'/logo/icon-dark.svg'"
+                alt="Lotro gibberish config logo"
+            >
+            <img
+                class="hidden dark:block"
                 :src="'/logo/icon.svg'"
-                alt="Icon"
+                alt="Lotro gibberish config logo"
             >
 
             <UCard class="md:w-1/2 w-full">
@@ -88,7 +94,7 @@
             </UCard>
 
             <p class="text-xs">
-                Already have an account? 
+                Already have an account?
                 <UButton
                     variant="link"
                     size="xs"

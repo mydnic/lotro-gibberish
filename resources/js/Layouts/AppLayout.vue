@@ -6,7 +6,7 @@
             <template #title>
                 <Link :href="route('home')">
                     <img
-                        :src="'/logo/logo-large.svg'"
+                        :src="'/logo/logo-larger_dark.svg'"
                         alt="logo"
                         class="block w-auto h-10 dark:hidden"
                     >
@@ -59,7 +59,10 @@
                         ]
                     ]"
                 >
-                    <UButton>
+                    <UButton
+                        variant="outline"
+                        icon="lucide:user"
+                    >
                         {{ $page.props.user.username }}
                     </UButton>
                 </UDropdownMenu>

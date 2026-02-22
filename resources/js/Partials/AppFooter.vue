@@ -14,7 +14,7 @@
                 <div class="xl:col-span-1">
                     <img
                         class="block h-10 dark:hidden"
-                        :src="'/logo/logo.png'"
+                        :src="'/logo/logo-larger_dark.svg'"
                         alt="Lotro gibberish config logo"
                     >
                     <img

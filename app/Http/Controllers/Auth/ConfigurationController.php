@@ -14,7 +14,7 @@ class ConfigurationController extends Controller
 {
     public function index()
     {
-        $configurations = auth()->user()->configurations()->with('category')->latest()->get();
+        $configurations = auth()->user()->configurations()->with(['category', 'user'])->latest()->get();
 
         return inertia('Auth/Configuration/Index', [
             'configurations' => $configurations,
