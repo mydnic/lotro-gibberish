@@ -1,73 +1,91 @@
 <template>
-    <Head title="Forgot Password" />
+    <AppLayout title="Forgot Password">
+        <div class="h-[80vh] space-y-10 flex flex-col items-center justify-center">
+            <img
+                class="block dark:hidden"
+                :src="'/logo/icon-dark.svg'"
+                alt="Lotro gibberish config logo"
+            >
+            <img
+                class="hidden dark:block"
+                :src="'/logo/icon.svg'"
+                alt="Lotro gibberish config logo"
+            >
 
-    <jet-authentication-card>
-        <template #logo>
-            <jet-authentication-card-logo />
-        </template>
+            <UCard class="md:w-1/2 w-full">
+                <template #header>
+                    <h2 class="text-lg font-medium text-gray-900 dark:text-white">
+                        Forgot password
+                    </h2>
+                </template>
 
-        <div class="mb-4 text-sm text-gray-600">
-            Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.
+                <UForm
+                    ref="form"
+                    :state="form"
+                    class="space-y-6"
+                    @submit.prevent="submit"
+                >
+                    <UAlert
+                        color="neutral"
+                        variant="subtle"
+                        description="Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one."
+                    />
+
+                    <div
+                        v-if="status"
+                        class="p-3 text-sm text-green-700 bg-green-50 dark:bg-green-900/40 dark:text-green-100 rounded"
+                    >
+                        {{ status }}
+                    </div>
+                    <UFormField
+                        label="Email"
+                        required
+                        name="email"
+                    >
+                        <UInput
+                            v-model="form.email"
+                            type="email"
+                            class="w-full"
+                            required
+                            autofocus
+                            placeholder="aragon@lotro.com"
+                        />
+                    </UFormField>
+
+                    <div class="flex justify-end">
+                        <UButton
+                            type="submit"
+                            :loading="form.processing"
+                        >
+                            Email Password Reset Link
+                        </UButton>
+                    </div>
+                </UForm>
+            </UCard>
         </div>
-
-        <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
-            {{ status }}
-        </div>
-
-        <jet-validation-errors class="mb-4" />
-
-        <form @submit.prevent="submit">
-            <div>
-                <jet-label for="email" value="Email" />
-                <jet-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Email Password Reset Link
-                </jet-button>
-            </div>
-        </form>
-    </jet-authentication-card>
+    </AppLayout>
 </template>
 
 <script>
-    import { defineComponent } from 'vue'
-    import { Head } from '@inertiajs/vue3';
-    import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue'
-    import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo.vue'
-    import JetButton from '@/Jetstream/Button.vue'
-    import JetInput from '@/Jetstream/Input.vue'
-    import JetLabel from '@/Jetstream/Label.vue'
-    import JetValidationErrors from '@/Jetstream/ValidationErrors.vue'
+import { defineComponent } from 'vue'
 
-    export default defineComponent({
-        components: {
-            Head,
-            JetAuthenticationCard,
-            JetAuthenticationCardLogo,
-            JetButton,
-            JetInput,
-            JetLabel,
-            JetValidationErrors
-        },
+export default defineComponent({
+    props: {
+        status: String
+    },
 
-        props: {
-            status: String
-        },
-
-        data() {
-            return {
-                form: this.$inertia.form({
-                    email: ''
-                })
-            }
-        },
-
-        methods: {
-            submit() {
-                this.form.post(this.route('password.email'))
-            }
+    data () {
+        return {
+            form: this.$inertia.form({
+                email: ''
+            })
         }
-    })
+    },
+
+    methods: {
+        submit () {
+            this.form.post(this.route('password.email'))
+        }
+    }
+})
 </script>

@@ -1,67 +1,81 @@
 <template>
-    <Head title="Secure Area" />
+    <AppLayout title="Confirm Password">
+        <div class="h-[80vh] space-y-10 flex flex-col items-center justify-center">
+            <img
+                class="block dark:hidden"
+                :src="'/logo/icon-dark.svg'"
+                alt="Lotro gibberish config logo"
+            >
+            <img
+                class="hidden dark:block"
+                :src="'/logo/icon.svg'"
+                alt="Lotro gibberish config logo"
+            >
 
-    <jet-authentication-card>
-        <template #logo>
-            <jet-authentication-card-logo />
-        </template>
+            <UCard class="md:w-1/2 w-full">
+                <template #header>
+                    <h2 class="text-lg font-medium text-gray-900 dark:text-white">
+                        Confirm password
+                    </h2>
+                </template>
 
-        <div class="mb-4 text-sm text-gray-600">
-            This is a secure area of the application. Please confirm your password before continuing.
+                <p class="text-sm text-gray-600 dark:text-gray-300">
+                    This is a secure area of the application. Please confirm your password before continuing.
+                </p>
+
+                <UForm
+                    ref="form"
+                    :state="form"
+                    class="space-y-6"
+                    @submit.prevent="submit"
+                >
+                    <UFormField
+                        label="Password"
+                        required
+                        name="password"
+                    >
+                        <UInput
+                            v-model="form.password"
+                            type="password"
+                            class="w-full"
+                            required
+                            autocomplete="current-password"
+                            autofocus
+                        />
+                    </UFormField>
+
+                    <div class="flex justify-end">
+                        <UButton
+                            type="submit"
+                            :loading="form.processing"
+                        >
+                            Confirm
+                        </UButton>
+                    </div>
+                </UForm>
+            </UCard>
         </div>
-
-        <jet-validation-errors class="mb-4" />
-
-        <form @submit.prevent="submit">
-            <div>
-                <jet-label for="password" value="Password" />
-                <jet-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" autofocus />
-            </div>
-
-            <div class="flex justify-end mt-4">
-                <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Confirm
-                </jet-button>
-            </div>
-        </form>
-    </jet-authentication-card>
+    </AppLayout>
 </template>
 
 <script>
-    import { defineComponent } from 'vue';
-    import { Head } from '@inertiajs/vue3';
-    import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue'
-    import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo.vue'
-    import JetButton from '@/Jetstream/Button.vue'
-    import JetInput from '@/Jetstream/Input.vue'
-    import JetLabel from '@/Jetstream/Label.vue'
-    import JetValidationErrors from '@/Jetstream/ValidationErrors.vue'
+import { defineComponent } from 'vue'
 
-    export default defineComponent({
-        components: {
-            Head,
-            JetAuthenticationCard,
-            JetAuthenticationCardLogo,
-            JetButton,
-            JetInput,
-            JetLabel,
-            JetValidationErrors
-        },
-
-        data() {
-            return {
-                form: this.$inertia.form({
-                    password: '',
-                })
-            }
-        },
-
-        methods: {
-            submit() {
-                this.form.post(this.route('password.confirm'), {
-                    onFinish: () => this.form.reset(),
-                })
-            }
+export default defineComponent({
+    data() {
+        return {
+            form: this.$inertia.form({
+                password: '',
+            })
         }
-    })
+    },
+
+    methods: {
+        submit() {
+            this.form.post(this.route('password.confirm'), {
+                onFinish: () => this.form.reset(),
+            })
+        }
+    }
+})
 </script>
