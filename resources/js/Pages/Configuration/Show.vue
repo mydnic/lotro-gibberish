@@ -137,14 +137,11 @@
 <script>
 import { defineComponent } from 'vue'
 import dayjs from 'dayjs'
-import { Link } from '@inertiajs/vue3'
 import useClipboard from 'vue-clipboard3'
 
 const { toClipboard } = useClipboard()
 
 export default defineComponent({
-    components: { Link },
-
     props: ['configuration', 'liked'],
 
     data () {
