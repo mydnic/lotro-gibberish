@@ -1,155 +1,127 @@
 <template>
-    <jet-form-section @submitted="updateProfileInformation">
-        <template #title>
-            Profile Information
-        </template>
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+        <div class="md:col-span-1">
+            <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Profile Information</h3>
+            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Update your account's profile information and email address.</p>
+        </div>
 
-        <template #description>
-            Update your account's profile information and email address.
-        </template>
+        <div class="mt-5 md:mt-0 md:col-span-2">
+            <UCard>
+                <form @submit.prevent="updateProfileInformation">
+                    <div class="space-y-4">
+                        <!-- Profile Photo -->
+                        <div v-if="$page.props.jetstream.managesProfilePhotos">
+                            <input type="file" class="hidden" ref="photo" @change="updatePhotoPreview">
 
-        <template #form>
-            <!-- Profile Photo -->
-            <div class="col-span-6 sm:col-span-4" v-if="$page.props.jetstream.managesProfilePhotos">
-                <!-- Profile Photo File Input -->
-                <input type="file" class="hidden"
-                            ref="photo"
-                            @change="updatePhotoPreview">
+                            <UFormField label="Photo" :error="form.errors.photo">
+                                <div class="mt-2" v-show="!photoPreview">
+                                    <img :src="user.profile_photo_url" :alt="user.name" class="object-cover w-20 h-20 rounded-full">
+                                </div>
 
-                <jet-label for="photo" value="Photo" />
+                                <div class="mt-2" v-show="photoPreview">
+                                    <span class="block w-20 h-20 bg-center bg-no-repeat bg-cover rounded-full"
+                                          :style="'background-image: url(\'' + photoPreview + '\');'">
+                                    </span>
+                                </div>
 
-                <!-- Current Profile Photo -->
-                <div class="mt-2" v-show="! photoPreview">
-                    <img :src="user.profile_photo_url" :alt="user.name" class="object-cover w-20 h-20 rounded-full">
-                </div>
+                                <div class="mt-2 flex gap-2">
+                                    <UButton variant="outline" color="neutral" type="button" @click.prevent="selectNewPhoto">
+                                        Select A New Photo
+                                    </UButton>
+                                    <UButton variant="outline" color="neutral" type="button" @click.prevent="deletePhoto" v-if="user.profile_photo_path">
+                                        Remove Photo
+                                    </UButton>
+                                </div>
+                            </UFormField>
+                        </div>
 
-                <!-- New Profile Photo Preview -->
-                <div class="mt-2" v-show="photoPreview">
-                    <span class="block w-20 h-20 bg-center bg-no-repeat bg-cover rounded-full"
-                          :style="'background-image: url(\'' + photoPreview + '\');'">
-                    </span>
-                </div>
+                        <!-- Username -->
+                        <UFormField label="Username" :error="form.errors.username">
+                            <UInput id="username" type="text" class="w-full" v-model="form.username" autocomplete="username" />
+                        </UFormField>
 
-                <jet-secondary-button class="mt-2 mr-2" type="button" @click.prevent="selectNewPhoto">
-                    Select A New Photo
-                </jet-secondary-button>
+                        <!-- Email -->
+                        <UFormField label="Email" :error="form.errors.email">
+                            <UInput id="email" type="email" class="w-full" v-model="form.email" />
+                        </UFormField>
+                    </div>
 
-                <jet-secondary-button type="button" class="mt-2" @click.prevent="deletePhoto" v-if="user.profile_photo_path">
-                    Remove Photo
-                </jet-secondary-button>
-
-                <jet-input-error :message="form.errors.photo" class="mt-2" />
-            </div>
-
-            <!-- Name -->
-            <div class="col-span-6 sm:col-span-4">
-                <jet-label for="username" value="Username" />
-                <jet-input id="username" type="text" class="block w-full mt-1" v-model="form.username" autocomplete="username" />
-                <jet-input-error :message="form.errors.username" class="mt-2" />
-            </div>
-
-            <!-- Email -->
-            <div class="col-span-6 sm:col-span-4">
-                <jet-label for="email" value="Email" />
-                <jet-input id="email" type="email" class="block w-full mt-1" v-model="form.email" />
-                <jet-input-error :message="form.errors.email" class="mt-2" />
-            </div>
-        </template>
-
-        <template #actions>
-            <jet-action-message :on="form.recentlySuccessful" class="mr-3">
-                Saved.
-            </jet-action-message>
-
-            <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Save
-            </jet-button>
-        </template>
-    </jet-form-section>
+                    <div class="flex items-center justify-end mt-6 gap-3">
+                        <span v-if="form.recentlySuccessful" class="text-sm text-gray-600 dark:text-gray-400">Saved.</span>
+                        <UButton type="submit" :loading="form.processing" :disabled="form.processing">
+                            Save
+                        </UButton>
+                    </div>
+                </form>
+            </UCard>
+        </div>
+    </div>
 </template>
 
 <script>
-    import { defineComponent } from 'vue'
-    import JetButton from '@/Jetstream/Button.vue'
-    import JetFormSection from '@/Jetstream/FormSection.vue'
-    import JetInput from '@/Jetstream/Input.vue'
-    import JetInputError from '@/Jetstream/InputError.vue'
-    import JetLabel from '@/Jetstream/Label.vue'
-    import JetActionMessage from '@/Jetstream/ActionMessage.vue'
-    import JetSecondaryButton from '@/Jetstream/SecondaryButton.vue'
+import { defineComponent } from 'vue'
 
-    export default defineComponent({
-        components: {
-            JetActionMessage,
-            JetButton,
-            JetFormSection,
-            JetInput,
-            JetInputError,
-            JetLabel,
-            JetSecondaryButton,
+export default defineComponent({
+    props: ['user'],
+
+    data() {
+        return {
+            form: this.$inertia.form({
+                _method: 'PUT',
+                username: this.user.username,
+                email: this.user.email,
+                photo: null,
+            }),
+            photoPreview: null,
+        }
+    },
+
+    methods: {
+        updateProfileInformation() {
+            if (this.$refs.photo) {
+                this.form.photo = this.$refs.photo.files[0]
+            }
+
+            this.form.post(route('user-profile-information.update'), {
+                errorBag: 'updateProfileInformation',
+                preserveScroll: true,
+                onSuccess: () => (this.clearPhotoFileInput()),
+            });
         },
 
-        props: ['user'],
+        selectNewPhoto() {
+            this.$refs.photo.click();
+        },
 
-        data() {
-            return {
-                form: this.$inertia.form({
-                    _method: 'PUT',
-                    username: this.user.username,
-                    email: this.user.email,
-                    photo: null,
-                }),
+        updatePhotoPreview() {
+            const photo = this.$refs.photo.files[0];
 
-                photoPreview: null,
+            if (!photo) return;
+
+            const reader = new FileReader();
+
+            reader.onload = (e) => {
+                this.photoPreview = e.target.result;
+            };
+
+            reader.readAsDataURL(photo);
+        },
+
+        deletePhoto() {
+            this.$inertia.delete(route('current-user-photo.destroy'), {
+                preserveScroll: true,
+                onSuccess: () => {
+                    this.photoPreview = null;
+                    this.clearPhotoFileInput();
+                },
+            });
+        },
+
+        clearPhotoFileInput() {
+            if (this.$refs.photo?.value) {
+                this.$refs.photo.value = null;
             }
         },
-
-        methods: {
-            updateProfileInformation() {
-                if (this.$refs.photo) {
-                    this.form.photo = this.$refs.photo.files[0]
-                }
-
-                this.form.post(route('user-profile-information.update'), {
-                    errorBag: 'updateProfileInformation',
-                    preserveScroll: true,
-                    onSuccess: () => (this.clearPhotoFileInput()),
-                });
-            },
-
-            selectNewPhoto() {
-                this.$refs.photo.click();
-            },
-
-            updatePhotoPreview() {
-                const photo = this.$refs.photo.files[0];
-
-                if (! photo) return;
-
-                const reader = new FileReader();
-
-                reader.onload = (e) => {
-                    this.photoPreview = e.target.result;
-                };
-
-                reader.readAsDataURL(photo);
-            },
-
-            deletePhoto() {
-                this.$inertia.delete(route('current-user-photo.destroy'), {
-                    preserveScroll: true,
-                    onSuccess: () => {
-                        this.photoPreview = null;
-                        this.clearPhotoFileInput();
-                    },
-                });
-            },
-
-            clearPhotoFileInput() {
-                if (this.$refs.photo?.value) {
-                    this.$refs.photo.value = null;
-                }
-            },
-        },
-    })
+    },
+})
 </script>

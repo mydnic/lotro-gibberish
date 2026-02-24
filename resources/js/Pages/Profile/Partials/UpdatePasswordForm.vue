@@ -1,93 +1,70 @@
 <template>
-    <jet-form-section @submitted="updatePassword">
-        <template #title>
-            Update Password
-        </template>
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+        <div class="md:col-span-1">
+            <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">Update Password</h3>
+            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Ensure your account is using a long, random password to stay secure.</p>
+        </div>
 
-        <template #description>
-            Ensure your account is using a long, random password to stay secure.
-        </template>
+        <div class="mt-5 md:mt-0 md:col-span-2">
+            <UCard>
+                <form @submit.prevent="updatePassword">
+                    <div class="space-y-4">
+                        <UFormField label="Current Password" :error="form.errors.current_password">
+                            <UInput id="current_password" type="password" class="w-full" v-model="form.current_password" autocomplete="current-password" />
+                        </UFormField>
 
-        <template #form>
-            <div class="col-span-6 sm:col-span-4">
-                <jet-label for="current_password" value="Current Password" />
-                <jet-input id="current_password" type="password" class="mt-1 block w-full" v-model="form.current_password" ref="current_password" autocomplete="current-password" />
-                <jet-input-error :message="form.errors.current_password" class="mt-2" />
-            </div>
+                        <UFormField label="New Password" :error="form.errors.password">
+                            <UInput id="password" type="password" class="w-full" v-model="form.password" autocomplete="new-password" />
+                        </UFormField>
 
-            <div class="col-span-6 sm:col-span-4">
-                <jet-label for="password" value="New Password" />
-                <jet-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" ref="password" autocomplete="new-password" />
-                <jet-input-error :message="form.errors.password" class="mt-2" />
-            </div>
+                        <UFormField label="Confirm Password" :error="form.errors.password_confirmation">
+                            <UInput id="password_confirmation" type="password" class="w-full" v-model="form.password_confirmation" autocomplete="new-password" />
+                        </UFormField>
+                    </div>
 
-            <div class="col-span-6 sm:col-span-4">
-                <jet-label for="password_confirmation" value="Confirm Password" />
-                <jet-input id="password_confirmation" type="password" class="mt-1 block w-full" v-model="form.password_confirmation" autocomplete="new-password" />
-                <jet-input-error :message="form.errors.password_confirmation" class="mt-2" />
-            </div>
-        </template>
-
-        <template #actions>
-            <jet-action-message :on="form.recentlySuccessful" class="mr-3">
-                Saved.
-            </jet-action-message>
-
-            <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Save
-            </jet-button>
-        </template>
-    </jet-form-section>
+                    <div class="flex items-center justify-end mt-6 gap-3">
+                        <span v-if="form.recentlySuccessful" class="text-sm text-gray-600 dark:text-gray-400">Saved.</span>
+                        <UButton type="submit" :loading="form.processing" :disabled="form.processing">
+                            Save
+                        </UButton>
+                    </div>
+                </form>
+            </UCard>
+        </div>
+    </div>
 </template>
 
 <script>
-    import { defineComponent } from 'vue'
-    import JetActionMessage from '@/Jetstream/ActionMessage.vue'
-    import JetButton from '@/Jetstream/Button.vue'
-    import JetFormSection from '@/Jetstream/FormSection.vue'
-    import JetInput from '@/Jetstream/Input.vue'
-    import JetInputError from '@/Jetstream/InputError.vue'
-    import JetLabel from '@/Jetstream/Label.vue'
+import { defineComponent } from 'vue'
 
-    export default defineComponent({
-        components: {
-            JetActionMessage,
-            JetButton,
-            JetFormSection,
-            JetInput,
-            JetInputError,
-            JetLabel,
-        },
+export default defineComponent({
+    data() {
+        return {
+            form: this.$inertia.form({
+                current_password: '',
+                password: '',
+                password_confirmation: '',
+            }),
+        }
+    },
 
-        data() {
-            return {
-                form: this.$inertia.form({
-                    current_password: '',
-                    password: '',
-                    password_confirmation: '',
-                }),
-            }
-        },
-
-        methods: {
-            updatePassword() {
-                this.form.put(route('user-password.update'), {
-                    errorBag: 'updatePassword',
-                    preserveScroll: true,
-                    onSuccess: () => this.form.reset(),
-                    onError: () => {
-                        if (this.form.errors.password) {
-                            this.form.reset('password', 'password_confirmation')
-                            this.$refs.password.focus()
-                        }
-
-                        if (this.form.errors.current_password) {
-                            this.form.reset('current_password')
-                            this.$refs.current_password.focus()
-                        }
+    methods: {
+        updatePassword() {
+            this.form.put(route('user-password.update'), {
+                errorBag: 'updatePassword',
+                preserveScroll: true,
+                onSuccess: () => this.form.reset(),
+                onError: () => {
+                    if (this.form.errors.password) {
+                        this.form.reset('password', 'password_confirmation')
                     }
-                })
-            },
+
+                    if (this.form.errors.current_password) {
+                        this.form.reset('current_password')
+                    }
+                }
+            })
         },
-    })
+    },
+})
 </script>

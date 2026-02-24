@@ -1,52 +1,49 @@
 <template>
-    <jet-danger-button @click="showDeleteModal = true">
-        Delete
-    </jet-danger-button>
+    <UModal
+        title="Delete Configuration"
+        description="Are you sure you want to delete this configuration? It will be permanently deleted."
+    >
+        <UButton
+            variant="ghost"
+            color="error"
+        >
+            Delete
+        </UButton>
 
-    <jet-dialog-modal :show="showDeleteModal" @close="showDeleteModal = false">
-        <template #title>
-            Delete Configuration
+        <template #body>
+            <div class="flex justify-between">
+                <UButton
+                    color="neutral"
+                    variant="outline"
+                >
+                    Cancel
+                </UButton>
+
+                <UButton
+                    color="error"
+                    @click="deleteConfig"
+                >
+                    Delete
+                </UButton>
+            </div>
         </template>
-
-        <template #content>
-            Are you sure you want to delete this configuration? It will be permanently deleted.
-        </template>
-
-        <template #footer>
-            <jet-secondary-button @click="showDeleteModal = false">
-                Cancel
-            </jet-secondary-button>
-
-            <jet-danger-button class="ml-3" @click="deleteConfig" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Delete Configuration
-            </jet-danger-button>
-        </template>
-    </jet-dialog-modal>
+    </UModal>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
-import JetDangerButton from '@/Jetstream/DangerButton.vue'
-import JetSecondaryButton from '@/Jetstream/SecondaryButton.vue'
-import JetDialogModal from '@/Jetstream/DialogModal.vue'
 
 export default defineComponent({
     props: ['configuration'],
 
-    components: {
-        JetDialogModal,
-        JetSecondaryButton,
-        JetDangerButton,
-    },
-
-    data() {
+    data () {
         return {
-            showDeleteModal: false,
+            showDeleteModal: false
         }
     },
 
     methods: {
-        deleteConfig() {
+        deleteConfig () {
             this.$inertia.delete(route('user.configuration.destroy', this.configuration.uuid))
         }
     }

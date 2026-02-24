@@ -66,7 +66,10 @@
                 :key="config.id"
                 :href="route('configuration.show', config)"
             >
-                <UCard class="hover:ring-2 hover:ring-primary transition-shadow cursor-pointer">
+                <UCard
+                    variant="soft"
+                    class="hover:ring-2 hover:ring-primary transition-shadow cursor-pointer"
+                >
                     <div class="flex items-start gap-4">
                         <img
                             v-if="config.image_url"
@@ -105,7 +108,10 @@
 
                             <div class="flex items-center gap-4 mt-3 text-xs text-gray-500 dark:text-gray-400">
                                 <span class="flex items-center gap-1.5">
-                                    <UIcon name="lucide:user" class="size-3.5" />
+                                    <UIcon
+                                        name="lucide:user"
+                                        class="size-3.5"
+                                    />
                                     {{ config.user.username }}
                                 </span>
                                 <span
@@ -126,7 +132,10 @@
                                     {{ config.category.title }}
                                 </span>
                                 <span class="flex items-center gap-1.5">
-                                    <UIcon name="lucide:star" class="size-3.5" />
+                                    <UIcon
+                                        name="lucide:star"
+                                        class="size-3.5"
+                                    />
                                     {{ config.likes_count }}
                                 </span>
                             </div>

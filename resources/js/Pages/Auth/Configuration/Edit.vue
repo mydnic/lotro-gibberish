@@ -8,7 +8,7 @@
                     </h2>
                     <div class="flex items-center space-x-3">
                         <UButton
-                            variant="ghost"
+                            variant="outline"
                             color="primary"
                             @click="goToPublicPage"
                         >
@@ -206,14 +206,14 @@ import DeleteConfigButton from '@/Components/DeleteConfigButton.vue'
 import axios from 'axios'
 
 export default defineComponent({
-    props: ['categories', 'configuration'],
 
     components: {
         AppLayout,
         DeleteConfigButton
     },
+    props: ['categories', 'configuration'],
 
-    data() {
+    data () {
         const defaultCategory = this.categories?.find?.(category => category.id === this.configuration.category_id)
 
         return {
@@ -225,81 +225,83 @@ export default defineComponent({
                 code: this.configuration.code,
                 version: this.configuration.version,
                 language: this.configuration.language,
-                category_id: defaultCategory ? {
-                    value: defaultCategory.id,
-                    label: defaultCategory.title,
-                    avatar: {
-                        src: '/icons/' + defaultCategory.icon_path
-                    }
-                } : null,
-                is_public: !!this.configuration.is_public,
+                category_id: defaultCategory
+                    ? {
+                            value: defaultCategory.id,
+                            label: defaultCategory.title,
+                            avatar: {
+                                src: '/icons/' + defaultCategory.icon_path
+                            }
+                        }
+                    : null,
+                is_public: !!this.configuration.is_public
             })
         }
     },
 
     methods: {
-        submit() {
+        submit () {
             this.form.transform(data => ({
                 ...data,
                 category_id: data.category_id?.value ?? data.category_id
             })).put(this.route('user.configuration.update', this.configuration.uuid), {
-                preserveScroll: true,
+                preserveScroll: true
             })
         },
 
-        goToPublicPage() {
+        goToPublicPage () {
             this.$inertia.visit(route('configuration.show', this.configuration.uuid))
         },
 
-        pasteFunction(pasteEvent, callback) {
-            if(pasteEvent.clipboardData == false){
-                if(typeof(callback) == "function"){
-                    callback(undefined);
+        pasteFunction (pasteEvent, callback) {
+            if (pasteEvent.clipboardData == false) {
+                if (typeof (callback) == 'function') {
+                    callback(undefined)
                 }
             };
 
-            var items = pasteEvent.clipboardData.items;
+            var items = pasteEvent.clipboardData.items
 
-            if(items == undefined){
-                if(typeof(callback) == "function"){
-                    callback(undefined);
+            if (items == undefined) {
+                if (typeof (callback) == 'function') {
+                    callback(undefined)
                 }
             };
             for (var i = 0; i < items.length; i++) {
-                if (items[i].type.indexOf("image") == -1) continue;
-                var blob = items[i].getAsFile();
+                if (items[i].type.indexOf('image') == -1) continue
+                var blob = items[i].getAsFile()
                 this.addImage(blob)
             }
         },
 
-        onDrop(dropEvent) {
+        onDrop (dropEvent) {
             const items = dropEvent.dataTransfer.files
 
             for (var i = 0; i < items.length; i++) {
-                if (items[i].type.indexOf("image") == -1) continue;
+                if (items[i].type.indexOf('image') == -1) continue
                 var blob = items[i]
                 this.addImage(blob)
             }
         },
 
-        fileChange(event) {
+        fileChange (event) {
             const items = event.target.files
 
             for (var i = 0; i < items.length; i++) {
-                if (items[i].type.indexOf("image") == -1) continue;
+                if (items[i].type.indexOf('image') == -1) continue
                 var blob = items[i]
                 this.addImage(blob)
             }
         },
 
-        addImage(blob) {
+        addImage (blob) {
             this.uploading = true
 
             const formData = new FormData()
             formData.append('image', blob)
 
-            axios.post('/auth/upload',formData)
-                .then(response => {
+            axios.post('/auth/upload', formData)
+                .then((response) => {
                     this.uploading = false
                     this.dragging = false
 

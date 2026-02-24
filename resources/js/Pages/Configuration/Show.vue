@@ -37,7 +37,10 @@
         </div>
 
         <!-- Meta card -->
-        <UCard class="mb-6">
+        <UCard
+            class="mb-6"
+            variant="soft"
+        >
             <div class="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-gray-600 dark:text-gray-400">
                 <span class="flex items-center gap-1.5">
                     <img
@@ -97,6 +100,7 @@
         <UCard
             v-if="configuration.formatted_description"
             class="mb-6"
+            variant="soft"
         >
             <div
                 class="prose max-w-none dark:prose-invert whitespace-pre-line"
@@ -105,7 +109,7 @@
         </UCard>
 
         <!-- Code block -->
-        <UCard>
+        <UCard variant="soft">
             <template #header>
                 <div class="flex items-center justify-between">
                     <span class="text-sm font-medium text-gray-700 dark:text-gray-300">

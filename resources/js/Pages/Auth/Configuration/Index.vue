@@ -18,7 +18,10 @@
                 :key="config.id"
                 :href="route('user.configuration.edit', config)"
             >
-                <UCard class="hover:ring-2 hover:ring-primary transition-shadow cursor-pointer">
+                <UCard
+                    variant="soft"
+                    class="hover:ring-2 hover:ring-primary transition-shadow cursor-pointer"
+                >
                     <div class="flex items-start gap-4">
                         <img
                             v-if="config.image_url"
