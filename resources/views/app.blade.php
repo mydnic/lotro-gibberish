@@ -14,6 +14,12 @@
         @routes
         @inertiaHead
         @vite(['resources/js/app.js', 'resources/css/app.css'])
+
+        <script
+            src="https://rybbit.dricle.be/api/script.js"
+            data-site-id="85621985998f"
+            defer
+        ></script>
     </head>
     <body class="font-sans antialiased isolate">
         @inertia

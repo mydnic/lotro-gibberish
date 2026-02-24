@@ -38,6 +38,9 @@ mydnic on discord
 
 # Changelog
 
+## 2026-02-24
+- UI update
+
 ## 2024-03-16
 - Update discord handles
 
