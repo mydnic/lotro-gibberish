@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
-        <link rel="icon" href="/img/icon.png" type="image/png"/>
+        <link rel="icon" href="/logo/icon-dark.png" type="image/png"/>
 
         <meta name="theme-color" content="#9ac334">
 
