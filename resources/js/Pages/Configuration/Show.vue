@@ -77,6 +77,21 @@
                     :avatar="{ alt: configuration.user.username }"
                     size="sm"
                 />
+
+                <a
+                    v-if="configuration.user.support_link"
+                    :href="configuration.user.support_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-white bg-gradient-to-r from-pink-500 to-purple-600 rounded-lg hover:from-pink-600 hover:to-purple-700 transition-all shadow-sm"
+                >
+                    <UIcon
+                        name="lucide:heart"
+                        class="size-3.5"
+                    />
+                    Support Creator
+                </a>
+
                 <div class="grow" />
                 <span class="flex items-center gap-1.5">
                     <UIcon

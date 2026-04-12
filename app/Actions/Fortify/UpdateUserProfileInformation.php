@@ -21,6 +21,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         Validator::make($input, [
             'username' => ['required', 'string', 'max:255', Rule::unique('users')->ignore($user->id)],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+            'support_link' => ['nullable', 'url', 'max:255'],
         ])->validateWithBag('updateProfileInformation');
 
         if ($input['email'] !== $user->email &&
@@ -30,6 +31,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $user->forceFill([
                 'username' => $input['username'],
                 'email' => $input['email'],
+                'support_link' => $input['support_link'] ?? null,
             ])->save();
         }
     }
@@ -46,6 +48,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         $user->forceFill([
             'username' => $input['username'],
             'email' => $input['email'],
+            'support_link' => $input['support_link'] ?? null,
             'email_verified_at' => null,
         ])->save();
 
