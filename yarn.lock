@@ -2769,6 +2769,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axios@npm:^1.15.0":
+  version: 1.15.0
+  resolution: "axios@npm:1.15.0"
+  dependencies:
+    follow-redirects: "npm:^1.15.11"
+    form-data: "npm:^4.0.5"
+    proxy-from-env: "npm:^2.1.0"
+  checksum: 10c0/47e0f860e98d4d7aa145e89ce0cae00e1fb0f1d2485f065c21fce955ddb1dba4103a46bd0e47acd18a27208a7f62c96249e620db575521b92a968619ab133409
+  languageName: node
+  linkType: hard
+
 "balanced-match@npm:^1.0.0":
   version: 1.0.2
   resolution: "balanced-match@npm:1.0.2"
@@ -5758,6 +5769,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"proxy-from-env@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "proxy-from-env@npm:2.1.0"
+  checksum: 10c0/ed01729fd4d094eab619cd7e17ce3698b3413b31eb102c4904f9875e677cd207392795d5b4adee9cec359dfd31c44d5ad7595a3a3ad51c40250e141512281c58
+  languageName: node
+  linkType: hard
+
 "punycode.js@npm:^2.3.1":
   version: 2.3.1
   resolution: "punycode.js@npm:2.3.1"
@@ -6067,7 +6085,7 @@ __metadata:
     "@vitejs/plugin-vue": "npm:^6.0.4"
     "@vue/server-renderer": "npm:^3.5.28"
     autoprefixer: "npm:^10.4.24"
-    axios: "npm:^1.13.5"
+    axios: "npm:^1.15.0"
     dayjs: "npm:^1.11.19"
     eslint: "npm:^10.0.0"
     laravel-vite-plugin: "npm:^2.1.0"
