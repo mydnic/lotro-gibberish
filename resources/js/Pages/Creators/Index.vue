@@ -36,6 +36,20 @@
                             size="md"
                         />
                     </div>
+
+                    <UButton
+                        v-if="creator.support_link"
+                        :href="creator.support_link"
+                        target="_blank"
+                        variant="outline"
+                        color="neutral"
+                        size="sm"
+                        class="ring-2 ring-gradient-to-r ring-pink-500"
+                        rel="noopener noreferrer"
+                        icon="lucide:heart"
+                    >
+                        Support
+                    </UButton>
                 </div>
 
                 <div class="grid grid-cols-2 gap-4 mb-4">
@@ -49,7 +63,10 @@
                     </div>
                     <div class="text-center p-3 bg-white dark:bg-zinc-800 rounded-lg">
                         <div class="text-2xl font-bold text-yellow-600 dark:text-yellow-500 flex items-center justify-center gap-1">
-                            <UIcon name="lucide:star" class="size-5" />
+                            <UIcon
+                                name="lucide:star"
+                                class="size-5"
+                            />
                             {{ creator.total_stars }}
                         </div>
                         <div class="text-xs text-gray-500 dark:text-gray-400">
@@ -57,29 +74,18 @@
                         </div>
                     </div>
                 </div>
-
-                <a
-                    v-if="creator.support_link"
-                    :href="creator.support_link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="flex items-center justify-center gap-2 w-full px-4 py-2.5 text-sm font-medium text-white bg-gradient-to-r from-pink-500 to-purple-600 rounded-lg hover:from-pink-600 hover:to-purple-700 transition-all shadow-sm"
-                >
-                    <UIcon name="lucide:heart" class="size-4" />
-                    Support {{ creator.username }}
-                </a>
-                <div
-                    v-else
-                    class="flex items-center justify-center gap-2 w-full px-4 py-2.5 text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-zinc-800 rounded-lg"
-                >
-                    <UIcon name="lucide:info" class="size-4" />
-                    No support link yet
-                </div>
             </UCard>
         </div>
 
-        <UCard v-if="creators.length === 0" variant="soft" class="text-center py-12">
-            <UIcon name="lucide:users" class="size-12 text-gray-400 mx-auto mb-4" />
+        <UCard
+            v-if="creators.length === 0"
+            variant="soft"
+            class="text-center py-12"
+        >
+            <UIcon
+                name="lucide:users"
+                class="size-12 text-gray-400 mx-auto mb-4"
+            />
             <p class="text-gray-600 dark:text-gray-400">
                 No creators found yet.
             </p>
@@ -91,6 +97,6 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-    props: ['creators'],
+    props: ['creators']
 })
 </script>

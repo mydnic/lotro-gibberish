@@ -2,38 +2,41 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Configuration;
 use App\Models\User;
-use Illuminate\Support\Facades\DB;
 
 class CreatorController extends Controller
 {
     public function index()
     {
-        $creators = User::select('users.*')
+        $configurationMorphClass = (new Configuration())->getMorphClass();
+
+        $creators = User::query()
+            ->select('users.id', 'users.username', 'users.support_link')
             ->withCount('configurations')
-            ->with(['configurations' => function ($query) {
-                $query->select('user_id', DB::raw('SUM(like_counter_count) as total_stars'))
-                    ->groupBy('user_id');
-            }])
+            ->addSelect([
+                'total_stars' => Configuration::query()
+                    ->selectRaw('COALESCE(SUM(likeable_like_counters.count), 0)')
+                    ->leftJoin('likeable_like_counters', function ($join) use ($configurationMorphClass) {
+                        $join->on('likeable_like_counters.likeable_id', '=', 'configurations.id')
+                            ->where('likeable_like_counters.likeable_type', '=', $configurationMorphClass);
+                    })
+                    ->whereColumn('configurations.user_id', 'users.id'),
+            ])
             ->having('configurations_count', '>', 0)
+            ->orderByDesc('total_stars')
             ->orderByDesc('configurations_count')
             ->limit(50)
             ->get()
             ->map(function ($user) {
-                $totalStars = DB::table('configurations')
-                    ->where('user_id', $user->id)
-                    ->sum('like_counter_count');
-
                 return [
                     'id' => $user->id,
                     'username' => $user->username,
                     'support_link' => $user->support_link,
                     'configurations_count' => $user->configurations_count,
-                    'total_stars' => $totalStars ?? 0,
+                    'total_stars' => (int) $user->total_stars,
                 ];
-            })
-            ->sortByDesc('total_stars')
-            ->values();
+            });
 
         return inertia('Creators/Index', [
             'creators' => $creators,
