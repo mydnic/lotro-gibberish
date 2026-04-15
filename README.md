@@ -38,6 +38,9 @@ mydnic on discord
 
 # Changelog
 
+## 2026-04-15
+- Config creators can now add a "support my work" link on their config page
+
 ## 2026-02-24
 - UI update
 
