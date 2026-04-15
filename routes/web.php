@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'ConfigurationController@index')->name('home');
 Route::get('/creators', 'CreatorController@index')->name('creators.index');
+Route::get('/creators/{user:username}', 'CreatorController@show')->name('creators.show');
 
 Route::get('/config/create', 'ConfigurationController@create')->name('configuration.create')->middleware('auth');
 Route::get('/config/{configuration}', 'ConfigurationController@show')->name('configuration.show');

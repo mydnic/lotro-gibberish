@@ -72,11 +72,16 @@
                     {{ configuration.language }}
                 </UBadge>
 
-                <UUser
-                    :name="configuration.user.username"
-                    :avatar="{ alt: configuration.user.username }"
-                    size="sm"
-                />
+                <Link
+                    :href="route('creators.show', configuration.user.username)"
+                    class="block"
+                >
+                    <UUser
+                        :name="configuration.user.username"
+                        :avatar="{ alt: configuration.user.username }"
+                        size="sm"
+                    />
+                </Link>
 
                 <UButton
                     v-if="configuration.user.support_link"

@@ -45,4 +45,41 @@ class CreatorController extends Controller
             'creators' => $creators,
         ]);
     }
+
+    public function show(User $user)
+    {
+        $configurationMorphClass = (new Configuration())->getMorphClass();
+
+        $configurations = Configuration::query()
+            ->public()
+            ->where('user_id', $user->id)
+            ->with('category', 'user', 'likeCounter')
+            ->orderByDesc('updated_at')
+            ->paginate(12)
+            ->withQueryString();
+
+        $publicConfigurationsCount = $user->configurations()
+            ->where('is_public', true)
+            ->count();
+
+        $totalStars = Configuration::query()
+            ->where('configurations.user_id', $user->id)
+            ->where('configurations.is_public', true)
+            ->leftJoin('likeable_like_counters', function ($join) use ($configurationMorphClass) {
+                $join->on('likeable_like_counters.likeable_id', '=', 'configurations.id')
+                    ->where('likeable_like_counters.likeable_type', '=', $configurationMorphClass);
+            })
+            ->sum('likeable_like_counters.count');
+
+        return inertia('Creators/Show', [
+            'creator' => [
+                'id' => $user->id,
+                'username' => $user->username,
+                'support_link' => $user->support_link,
+                'configurations_count' => $publicConfigurationsCount,
+                'total_stars' => (int) ($totalStars ?? 0),
+            ],
+            'configurations' => $configurations,
+        ]);
+    }
 }
