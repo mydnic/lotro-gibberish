@@ -13,7 +13,9 @@ class CreatorController extends Controller
 
         $creators = User::query()
             ->select('users.id', 'users.username', 'users.support_link')
-            ->withCount('configurations')
+            ->withCount(['configurations' => function ($query) {
+                $query->where('is_public', true);
+            }])
             ->addSelect([
                 'total_stars' => Configuration::query()
                     ->selectRaw('COALESCE(SUM(likeable_like_counters.count), 0)')
@@ -21,7 +23,8 @@ class CreatorController extends Controller
                         $join->on('likeable_like_counters.likeable_id', '=', 'configurations.id')
                             ->where('likeable_like_counters.likeable_type', '=', $configurationMorphClass);
                     })
-                    ->whereColumn('configurations.user_id', 'users.id'),
+                    ->whereColumn('configurations.user_id', 'users.id')
+                    ->where('configurations.is_public', true),
             ])
             ->having('configurations_count', '>', 0)
             ->orderByDesc('total_stars')
