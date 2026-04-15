@@ -78,19 +78,19 @@
                     size="sm"
                 />
 
-                <a
+                <UButton
                     v-if="configuration.user.support_link"
                     :href="configuration.user.support_link"
                     target="_blank"
+                    variant="outline"
+                    color="neutral"
+                    size="sm"
+                    class="ring-2 ring-gradient-to-r ring-pink-500"
                     rel="noopener noreferrer"
-                    class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-white bg-gradient-to-r from-pink-500 to-purple-600 rounded-lg hover:from-pink-600 hover:to-purple-700 transition-all shadow-sm"
+                    icon="lucide:heart"
                 >
-                    <UIcon
-                        name="lucide:heart"
-                        class="size-3.5"
-                    />
                     Support Creator
-                </a>
+                </UButton>
 
                 <div class="grow" />
                 <span class="flex items-center gap-1.5">
