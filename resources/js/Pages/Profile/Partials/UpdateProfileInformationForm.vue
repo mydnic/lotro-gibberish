@@ -44,6 +44,21 @@
                         <UFormField label="Email" :error="form.errors.email">
                             <UInput id="email" type="email" class="w-full" v-model="form.email" />
                         </UFormField>
+
+                        <!-- Support Link -->
+                        <UFormField
+                            label="Support Link (optional)"
+                            :error="form.errors.support_link"
+                            hint="Add your Ko-fi, PayPal.me, or other donation link so users can support your work"
+                        >
+                            <UInput
+                                id="support_link"
+                                type="url"
+                                class="w-full"
+                                v-model="form.support_link"
+                                placeholder="https://ko-fi.com/yourname or https://paypal.me/yourname"
+                            />
+                        </UFormField>
                     </div>
 
                     <div class="flex items-center justify-end mt-6 gap-3">
@@ -70,6 +85,7 @@ export default defineComponent({
                 _method: 'PUT',
                 username: this.user.username,
                 email: this.user.email,
+                support_link: this.user.support_link || '',
                 photo: null,
             }),
             photoPreview: null,

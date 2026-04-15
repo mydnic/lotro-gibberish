@@ -24,6 +24,10 @@
                         {
                             label: 'All Configs',
                             href: route('home')
+                        },
+                        {
+                            label: 'Top Creators',
+                            href: route('creators.index')
                         }
                     ]
                 ]"

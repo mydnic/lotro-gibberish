@@ -77,6 +77,21 @@
                     :avatar="{ alt: configuration.user.username }"
                     size="sm"
                 />
+
+                <UButton
+                    v-if="configuration.user.support_link"
+                    :href="configuration.user.support_link"
+                    target="_blank"
+                    variant="outline"
+                    color="neutral"
+                    size="sm"
+                    class="ring-2 ring-gradient-to-r ring-pink-500"
+                    rel="noopener noreferrer"
+                    icon="lucide:heart"
+                >
+                    Support Creator
+                </UButton>
+
                 <div class="grow" />
                 <span class="flex items-center gap-1.5">
                     <UIcon
