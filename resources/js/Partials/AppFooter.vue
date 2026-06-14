@@ -66,10 +66,10 @@
 
                                 <li>
                                     <a
-                                        href="https://www.youtube.com/watch?v=xwyCDJBlakI"
+                                        href="https://discord.gg/DYDdbWykEG"
                                         target="_blank"
                                         class="text-base text-gray-500 dark:text-gray-300 dark:hover:text-white hover:text-gray-900"
-                                    > Plugin Tutorial </a>
+                                    > Discord Server </a>
                                 </li>
 
                                 <li>
