@@ -1,6 +1,17 @@
 <template>
     <UApp>
-        <Head :title="title" />
+        <Head :title="title">
+            <meta
+                v-if="description"
+                name="description"
+                :content="description"
+            >
+            <link
+                v-if="canonical"
+                rel="canonical"
+                :href="canonical"
+            >
+        </Head>
 
         <UHeader>
             <template #title>
@@ -106,7 +117,15 @@ import AppFooter from '../Partials/AppFooter.vue'
 export default defineComponent({
     components: { AppFooter },
     props: {
-        title: String
+        title: String,
+        description: {
+            type: String,
+            default: null
+        },
+        canonical: {
+            type: String,
+            default: null
+        }
     }
 })
 </script>
