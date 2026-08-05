@@ -6,28 +6,27 @@
         "build": "vite build && vite build --ssr"
     },
     "devDependencies": {
-        "@inertiajs/vue3": "^2.3.21",
-        "@nuxt/eslint-config": "^1.15.2",
+        "@inertiajs/vue3": "^3.6.1",
+        "@nuxt/eslint-config": "^1.16.0",
         "@tailwindcss/forms": "^0.5.11",
-        "@tailwindcss/typography": "^0.5.19",
-        "@tailwindcss/vite": "^4.2.2",
-        "@vitejs/plugin-vue": "^6.0.6",
-        "autoprefixer": "^10.5.0",
-        "axios": "^1.18.0",
-        "eslint": "^10.2.0",
-        "laravel-vite-plugin": "^3.0.1",
+        "@tailwindcss/typography": "^0.5.20",
+        "@tailwindcss/vite": "^4.3.3",
+        "@vitejs/plugin-vue": "^6.0.8",
+        "autoprefixer": "^10.5.4",
+        "axios": "^1.19.0",
+        "eslint": "^10.8.0",
+        "laravel-vite-plugin": "^3.1.3",
         "lodash": "^4.18.1",
-        "postcss": "^8.5.23",
+        "postcss": "^8.5.25",
         "postcss-import": "^16.1.1",
-        "tailwindcss": "^4.2.2",
-        "vite": "^8.0.16",
-        "vue": "^3.5.32"
+        "tailwindcss": "^4.3.3",
+        "vite": "^8.2.0",
+        "vue": "^3.5.41"
     },
     "dependencies": {
-        "@nuxt/ui": "^4.6.1",
-        "@vue/server-renderer": "^3.5.32",
-        "dayjs": "^1.11.20",
-        "vue-clipboard3": "^2.0.0"
+        "@nuxt/ui": "^4.10.0",
+        "@vue/server-renderer": "^3.5.41",
+        "dayjs": "^1.11.21"
     },
     "packageManager": "yarn@4.1.1"
 }

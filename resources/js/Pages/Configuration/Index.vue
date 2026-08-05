@@ -184,11 +184,14 @@ export default defineComponent({
     props: ['configurations', 'categories'],
 
     data () {
+        // ponytail: $page.url instead of window.location — same query string, works under SSR
+        const query = new URLSearchParams(this.$page.url.split('?')[1] || '')
+
         return {
             form: {
-                search: new URLSearchParams(window.location.search).get('search') || '',
-                version: new URLSearchParams(window.location.search).get('version') || null,
-                language: new URLSearchParams(window.location.search).get('language') || null,
+                search: query.get('search') || '',
+                version: query.get('version') || null,
+                language: query.get('language') || null,
                 categories: this.getCategoriesFromQuery()
             },
             debounceTimer: null,
@@ -219,7 +222,7 @@ export default defineComponent({
         },
 
         getCategoriesFromQuery () {
-            const cats = new URLSearchParams(window.location.search).get('categories')
+            const cats = new URLSearchParams(this.$page.url.split('?')[1] || '').get('categories')
             return cats ? cats.split(',').map(Number).filter(Boolean) : []
         },
 

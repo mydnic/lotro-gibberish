@@ -157,9 +157,6 @@
 <script>
 import { defineComponent } from 'vue'
 import dayjs from 'dayjs'
-import useClipboard from 'vue-clipboard3'
-
-const { toClipboard } = useClipboard()
 
 export default defineComponent({
     props: ['configuration', 'liked'],
@@ -177,7 +174,7 @@ export default defineComponent({
 
         async copy () {
             try {
-                await toClipboard(this.configuration.code)
+                await navigator.clipboard.writeText(this.configuration.code)
                 this.copied = true
                 setTimeout(() => { this.copied = false }, 2000)
             } catch (e) {

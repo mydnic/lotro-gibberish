@@ -2,8 +2,12 @@ import { createSSRApp, h } from 'vue'
 import createServer from '@inertiajs/vue3/server'
 import { renderToString } from '@vue/server-renderer'
 import { createInertiaApp, Link, Head } from '@inertiajs/vue3'
+import { ZiggyVue } from 'ziggy-js'
+import ui from '@nuxt/ui/vue-plugin'
 
-// import AppLayout from './Layouts/AppLayout.vue'
+import { Ziggy } from './ziggy'
+import AppLayout from './Layouts/AppLayout.vue'
+
 createServer(page =>
     createInertiaApp({
         page,
@@ -11,18 +15,17 @@ createServer(page =>
         title: title => `${title} - Lotro Gibberish Config`,
         resolve: name => {
             const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
-            let page = pages[`./Pages/${name}.vue`]
-            // page.default.layout = page.default.layout || AppLayout
-            return page
+            return pages[`./Pages/${name}.vue`]
         },
-        setup({ App, props, plugin }) {
-
-            const vueApp = createSSRApp({ render: () => h(App, props) })
-            vueApp.use(plugin)
-                .mixin({ methods: { route } })
+        // ponytail: no .mount() on the server — return the app instance instead
+        setup ({ App, props, plugin }) {
+            return createSSRApp({ render: () => h(App, props) })
+                .use(plugin)
+                .use(ZiggyVue, Ziggy)
+                .use(ui)
+                .component('AppLayout', AppLayout)
                 .component('Link', Link)
                 .component('Head', Head)
-                .mount(el)
         },
     })
 )

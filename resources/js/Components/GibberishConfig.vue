@@ -79,9 +79,6 @@ import Modal from '@/Jetstream/Modal.vue'
 import JetActionMessage from '@/Jetstream/ActionMessage.vue'
 import JetSecondaryButton from '@/Jetstream/SecondaryButton.vue'
 import JetButton from '@/Jetstream/Button.vue'
-import useClipboard from 'vue-clipboard3'
-
-const { toClipboard } = useClipboard()
 
 export default defineComponent({
     props: ['config'],
@@ -116,7 +113,7 @@ export default defineComponent({
 
         async copy() {
             try {
-                await toClipboard(this.config.code)
+                await navigator.clipboard.writeText(this.config.code)
                 this.copied = true
             } catch (e) {
                 console.error(e)
