@@ -27,5 +27,6 @@ createServer(page =>
                 .component('Link', Link)
                 .component('Head', Head)
         },
-    })
+    }),
+    { port: Number(process.env.SSR_PORT) || 13716 }
 )

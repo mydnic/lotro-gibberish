@@ -31092,6 +31092,6 @@ createServer((page) => createInertiaApp({
 	setup({ App, props, plugin }) {
 		return createSSRApp({ render: () => h(App, props) }).use(plugin).use(M, Ziggy$1).use(virtual_nuxt_ui_plugins_default).component("AppLayout", AppLayout_default).component("Link", Link).component("Head", Head);
 	}
-}));
+}), { port: Number(process.env.SSR_PORT) || 13716 });
 //#endregion
 export {};
